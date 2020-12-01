@@ -1,0 +1,191 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "ParkingApp",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAF2H5MctG+tx4I=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Caso de Uso",
+			"ownedElements": [
+				{
+					"_type": "UMLUseCaseDiagram",
+					"_id": "AAAAAAF2H5MctW+urZo=",
+					"_parent": {
+						"$ref": "AAAAAAF2H5MctG+tx4I="
+					},
+					"name": "UseCaseDiagram1"
+				}
+			]
+		},
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAF2H5Myy2+yL2g=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Diagrama de Clase",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAF2H5Myy2+z5vE=",
+					"_parent": {
+						"$ref": "AAAAAAF2H5Myy2+yL2g="
+					},
+					"name": "ClassDiagram1"
+				}
+			]
+		},
+		{
+			"_type": "UMLCollaboration",
+			"_id": "AAAAAAF2H5NRKW+3a6I=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Diagrama de Sequecia",
+			"ownedElements": [
+				{
+					"_type": "UMLInteraction",
+					"_id": "AAAAAAF2H5NRKm+4rZU=",
+					"_parent": {
+						"$ref": "AAAAAAF2H5NRKW+3a6I="
+					},
+					"name": "Entrada",
+					"ownedElements": [
+						{
+							"_type": "UMLSequenceDiagram",
+							"_id": "AAAAAAF2H5NRKm+5bVY=",
+							"_parent": {
+								"$ref": "AAAAAAF2H5NRKm+4rZU="
+							},
+							"name": "SequenceDiagram1",
+							"ownedViews": [
+								{
+									"_type": "UMLFrameView",
+									"_id": "AAAAAAF2H5NRKm+64xk=",
+									"_parent": {
+										"$ref": "AAAAAAF2H5NRKm+5bVY="
+									},
+									"model": {
+										"$ref": "AAAAAAF2H5NRKm+5bVY="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF2H5NRKm+7yt8=",
+											"_parent": {
+												"$ref": "AAAAAAF2H5NRKm+64xk="
+											},
+											"font": "Arial;13;0",
+											"left": 32.72998046875,
+											"top": 13,
+											"width": 115.9052734375,
+											"height": 13,
+											"text": "SequenceDiagram1"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF2H5NRKm+8aw0=",
+											"_parent": {
+												"$ref": "AAAAAAF2H5NRKm+64xk="
+											},
+											"font": "Arial;13;1",
+											"left": 13,
+											"top": 13,
+											"width": 14.72998046875,
+											"height": 13,
+											"text": "sd"
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 8,
+									"top": 8,
+									"width": 692,
+									"height": 592,
+									"nameLabel": {
+										"$ref": "AAAAAAF2H5NRKm+7yt8="
+									},
+									"frameTypeLabel": {
+										"$ref": "AAAAAAF2H5NRKm+8aw0="
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"_type": "UMLInteraction",
+					"_id": "AAAAAAF2H6HfR2/P1qY=",
+					"_parent": {
+						"$ref": "AAAAAAF2H5NRKW+3a6I="
+					},
+					"name": "Salida",
+					"ownedElements": [
+						{
+							"_type": "UMLSequenceDiagram",
+							"_id": "AAAAAAF2H6HfSG/QLWA=",
+							"_parent": {
+								"$ref": "AAAAAAF2H6HfR2/P1qY="
+							},
+							"name": "SequenceDiagram1",
+							"ownedViews": [
+								{
+									"_type": "UMLFrameView",
+									"_id": "AAAAAAF2H6HfSG/RmB0=",
+									"_parent": {
+										"$ref": "AAAAAAF2H6HfSG/QLWA="
+									},
+									"model": {
+										"$ref": "AAAAAAF2H6HfSG/QLWA="
+									},
+									"subViews": [
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF2H6HfSG/SmNM=",
+											"_parent": {
+												"$ref": "AAAAAAF2H6HfSG/RmB0="
+											},
+											"font": "Arial;13;0",
+											"left": 32.72998046875,
+											"top": 13,
+											"width": 115.9052734375,
+											"height": 13,
+											"text": "SequenceDiagram1"
+										},
+										{
+											"_type": "LabelView",
+											"_id": "AAAAAAF2H6HfSG/TIfA=",
+											"_parent": {
+												"$ref": "AAAAAAF2H6HfSG/RmB0="
+											},
+											"font": "Arial;13;1",
+											"left": 13,
+											"top": 13,
+											"width": 14.72998046875,
+											"height": 13,
+											"text": "sd"
+										}
+									],
+									"font": "Arial;13;0",
+									"left": 8,
+									"top": 8,
+									"width": 692,
+									"height": 592,
+									"nameLabel": {
+										"$ref": "AAAAAAF2H6HfSG/SmNM="
+									},
+									"frameTypeLabel": {
+										"$ref": "AAAAAAF2H6HfSG/TIfA="
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
