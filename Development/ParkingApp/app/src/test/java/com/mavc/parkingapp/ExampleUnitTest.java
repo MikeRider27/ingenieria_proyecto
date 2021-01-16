@@ -1,4 +1,4 @@
-package com.example.parkingapp;
+package com.mavc.parkingapp;
 
 import org.junit.Test;
 
