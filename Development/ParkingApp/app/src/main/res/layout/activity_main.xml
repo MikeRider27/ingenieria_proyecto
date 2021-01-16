@@ -17,7 +17,9 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_parqueadero" />
+        app:srcCompat="@drawable/logo_parqueadero"
+        android:background="@color/black"
+        />
 
     <EditText
         android:id="@+id/usuario"
@@ -28,6 +30,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Nick"
+        android:text="admin"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -43,6 +46,7 @@
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:hint="Password"
+        android:text="123"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,10 +61,10 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:text="Ingresar"
-        android:onClick="login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        android:onClick="login"/>
 
     <Button
         android:id="@+id/registrar"
@@ -82,8 +86,10 @@
         android:layout_marginEnd="32dp"
         android:text="ParkingApp"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="162dp" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

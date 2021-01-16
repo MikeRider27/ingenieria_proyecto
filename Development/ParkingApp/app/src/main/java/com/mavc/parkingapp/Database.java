@@ -13,9 +13,9 @@ public class Database extends SQLiteOpenHelper
     @Override public void onCreate(SQLiteDatabase database)
     {
         //creacion de tablas
-        database.execSQL("create table zona(id_zona integer primary key autoincrement,nom_zona text);");
-        database.execSQL("create table tipo_bahias(id_tipbahia integer primary key autoincrement,nom_tipbahia text);");
-        database.execSQL("create table marca(id_marca integer primary key autoincrement,nom_marca text)");
+        database.execSQL("create table zona(codigo integer primary key autoincrement,descripcion text);");
+        database.execSQL("create table tipo_bahias(codigo integer primary key autoincrement,descripcion text);");
+        database.execSQL("create table marca(codigo integer primary key autoincrement,descripcion text)");
         database.execSQL("create table tipo_vehiculo(id_tipvehiculo integer primary key autoincrement,nom_tipvehiculo text,tarifa_hora text,tarifa_dia text);");
 
         database.execSQL("create table bahias(id_bahia integer primary key autoincrement,nom_bahia text,id_tipbahia integer,id_zona integer,estado_bahia text);");
@@ -28,7 +28,7 @@ public class Database extends SQLiteOpenHelper
         database.execSQL("create table entrada_salida(id_entradasalida integer primary key autoincrement,chapa text, fecha_entrada text,hora_entrada text, fecha_salida text,hora_salida text,id_bahia integer,monto integer,tiempo_totaL text,observaciones text,estado integer,id_usuario integer)");
 
         database.execSQL("create table usuario(id_usuario integer primary key autoincrement,nick text,nombre text,contrasena text,estado integer)");
-        database.execSQL("insert into usuario values('admin','Miguel Villalba','123', 1)");
+        database.execSQL("insert into usuario(nick,nombre,contrasena,estado) values('admin','Miguel Villalba','123', 1)");
     }
 
 

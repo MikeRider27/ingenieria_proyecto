@@ -22,8 +22,8 @@ public class Controlador   extends AppCompatActivity
     String tabla = "";
     String[] cols = new String[]{};
     int position = 0;
-    Button grabar, buscar, editar, limpiar, eliminar;
-    EditText codigo, descripcion, nombre, login, clave;
+    Button grabar, agregar, editar, limpiar, eliminar;
+    EditText codigo, descripcion, nombre, login, clave, email;
     EditText precio;
 
     Spinner idgrupo,idmarca;
@@ -42,90 +42,18 @@ public class Controlador   extends AppCompatActivity
         {
             tabla=getIntent().getExtras().getString("tabla");
 
-            if(tabla.equalsIgnoreCase("articulos"))
-            {
-                setContentView(R.layout.activity_articulo);
-                grabar = (Button) findViewById(R.id.grabar);
-                buscar = (Button) findViewById(R.id.buscar);
-                editar = (Button) findViewById(R.id.editar);
-                limpiar = (Button) findViewById(R.id.limpiar);
-                eliminar = (Button) findViewById(R.id.eliminar);
-
-                codigo = (EditText) findViewById(R.id.codigo);
-                descripcion = (EditText) findViewById(R.id.descripcion);
-                precio = (EditText) findViewById(R.id.precio);
-
-                codigo.setEnabled(false);
-                buscar.setEnabled(false);
-                cols = Modelo.colsArticulos;
-                position = 4;
-                //cargaLista();
-                cargaLista_articulos();
-
-                ///combo de grupos
-                idgrupo = (Spinner) findViewById(R.id.cbogrupo);
-                List<String> fkgrupo = new ArrayList<>();
-                Modelo mods = new Modelo(getBaseContext());
-                mods.open();
-                mods.lista = null;
-                mods.buscarDefaultMod("grupo", null, Modelo.colsDefault, 1,false);
-                mods.close();
-                fkgrupo = mods.lista;
-
-                ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,fkgrupo);
-                dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                idgrupo.setAdapter(dataAdapter);
-                ///fin combo de grupos
-
-                ///combo de marcas
-                idmarca = (Spinner) findViewById(R.id.cbomarca);
-                List<String> fkmarca = new ArrayList<>();
-                Modelo mods1 = new Modelo(getBaseContext());
-                mods1.open();
-                mods1.lista = null;
-                mods1.buscarDefaultMod("marcas", null, Modelo.colsDefault, 1,false);
-                mods1.close();
-                fkmarca = mods1.lista;
-
-                ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,fkmarca);
-                dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                idmarca.setAdapter(dataAdapter1);
-                ///fin combo de marcas
-
-
-            }
-            else if(tabla.equalsIgnoreCase("grupo"))
-            {
-                setContentView(R.layout.activity_grupo);
-                grabar = (Button) findViewById(R.id.grabar);
-                buscar = (Button) findViewById(R.id.buscar);
-                editar = (Button) findViewById(R.id.editar);
-                limpiar = (Button) findViewById(R.id.limpiar);
-                eliminar = (Button) findViewById(R.id.eliminar);
-
-                codigo = (EditText) findViewById(R.id.codigo);
-                descripcion = (EditText) findViewById(R.id.descripcion);
-                codigo.setEnabled(false);
-                buscar.setEnabled(false);
-                cols = Modelo.colsDefault;
-                position = 1;
-                cargaLista();
-
-            }
-            else if(tabla.equalsIgnoreCase("marcas"))
+            if(tabla.equalsIgnoreCase("marca"))
             {
                 setContentView(R.layout.activity_marca);
-                grabar = (Button) findViewById(R.id.grabar);
-                buscar = (Button) findViewById(R.id.buscar);
-                editar = (Button) findViewById(R.id.editar);
-                limpiar = (Button) findViewById(R.id.limpiar);
-                eliminar = (Button) findViewById(R.id.eliminar);
+                agregar = (Button) findViewById(R.id.btnAgregar);
+                grabar = (Button) findViewById(R.id.btnGrabar);
+                editar = (Button) findViewById(R.id.btnEditar);
+                eliminar = (Button) findViewById(R.id.btnEliminar);
 
-                codigo = (EditText) findViewById(R.id.codigo);
-                descripcion = (EditText) findViewById(R.id.descripcion);
+                codigo = (EditText) findViewById(R.id.txt_id_marca);
+                descripcion = (EditText) findViewById(R.id.txt_nom_marca);
 
                 codigo.setEnabled(false);
-                buscar.setEnabled(false);
                 cols = Modelo.colsDefault;
                 position = 1;
                 cargaLista();
@@ -133,19 +61,18 @@ public class Controlador   extends AppCompatActivity
             else if(tabla.equalsIgnoreCase("usuarios"))
             {
                 setContentView(R.layout.activity_usuario);
-                grabar = (Button) findViewById(R.id.grabar);
-                buscar = (Button) findViewById(R.id.buscar);
-                editar = (Button) findViewById(R.id.editar);
-                limpiar = (Button) findViewById(R.id.limpiar);
-                eliminar = (Button) findViewById(R.id.eliminar);
 
-                codigo = (EditText) findViewById(R.id.codigo);
-                nombre = (EditText) findViewById(R.id.nombre);
-                login = (EditText) findViewById(R.id.login);
-                clave = (EditText) findViewById(R.id.clave);
+                agregar = (Button) findViewById(R.id.btnAgregar);
+                grabar = (Button) findViewById(R.id.btnGrabar);
+                editar = (Button) findViewById(R.id.btnEditar);
+                eliminar = (Button) findViewById(R.id.btnEliminar);
+
+                codigo = (EditText) findViewById(R.id.txt_id_usuario);
+                nombre = (EditText) findViewById(R.id.txt_usu_nombre);
+                login = (EditText) findViewById(R.id.txt_usu_nick);
+                clave = (EditText) findViewById(R.id.txt_usu_clave);
 
                 codigo.setEnabled(false);
-                buscar.setEnabled(false);
                 cols = Modelo.colsPat;
                 position = 2;
                 cargaLista_usuarios();
@@ -319,7 +246,6 @@ public class Controlador   extends AppCompatActivity
                                 codigo.setEnabled(false);
                             }
                         }
-                        buscar.setEnabled(false);
                         grabar.setEnabled(true);
                         eliminar.setEnabled(true);
                         editar.setEnabled(true);
@@ -330,7 +256,7 @@ public class Controlador   extends AppCompatActivity
             });//FIN GRABAR
 
             //BUSCAR
-            buscar.setOnClickListener(new View.OnClickListener()
+           /* buscar.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v) {
@@ -414,7 +340,7 @@ public class Controlador   extends AppCompatActivity
                     }
                 }
             });//FIN BUSCAR
-
+*/
             limpiar.setOnClickListener(new View.OnClickListener()
             {
                 @Override
@@ -457,7 +383,6 @@ public class Controlador   extends AppCompatActivity
                         }
                     }
 
-                    buscar.setEnabled(false);
                     grabar.setEnabled(true);
                     eliminar.setEnabled(true);
                     editar.setEnabled(true);
@@ -503,7 +428,6 @@ public class Controlador   extends AppCompatActivity
                     }
 
 
-                    buscar.setEnabled(true);
                     grabar.setEnabled(false);
                     eliminar.setEnabled(false);
                     editar.setEnabled(false);
@@ -519,7 +443,6 @@ public class Controlador   extends AppCompatActivity
                         {
                             codigo.setText("");
                             descripcion.setText("");
-                            buscar.setEnabled(true);
                             codigo.setEnabled(true);
                             codigo.requestFocus();
                         }
@@ -531,7 +454,6 @@ public class Controlador   extends AppCompatActivity
                             nombre.setText("");
                             login.setText("");
                             clave.setText("");
-                            buscar.setEnabled(true);
                             codigo.setEnabled(true);
                             codigo.requestFocus();
                         }
@@ -547,7 +469,6 @@ public class Controlador   extends AppCompatActivity
                     }
 
 
-                    buscar.setEnabled(true);
                     grabar.setEnabled(false);
                     eliminar.setEnabled(false);
                     editar.setEnabled(false);
@@ -566,11 +487,10 @@ public class Controlador   extends AppCompatActivity
     }
     public void initButton()
     {
-        grabar = (Button) findViewById(R.id.grabar);
-        buscar = (Button) findViewById(R.id.buscar);
-        editar = (Button) findViewById(R.id.editar);
-        limpiar = (Button) findViewById(R.id.limpiar);
-        eliminar = (Button) findViewById(R.id.eliminar);
+        grabar = (Button) findViewById(R.id.btnGrabar);
+        editar = (Button) findViewById(R.id.btnEditar);
+        //limpiar = (Button) findViewById(R.id.limpiar);
+        eliminar = (Button) findViewById(R.id.btnEliminar);
     }
 
     //para tablas de 2 columnas, codigo y descripcion
@@ -582,7 +502,7 @@ public class Controlador   extends AppCompatActivity
 
         Database database = new Database(this);
 
-        fila =database.getReadableDatabase().rawQuery("SELECT codigo,descripcion FROM "+ tabla +" ORDER BY codigo", null);
+        fila =database.getReadableDatabase().rawQuery("SELECT codigo,descripcion FROM "+ tabla +" ORDER BY codigo ", null);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.mytextview);
 
