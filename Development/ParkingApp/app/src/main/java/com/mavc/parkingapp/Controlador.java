@@ -93,7 +93,8 @@ public class Controlador   extends AppCompatActivity
                 ///fin combo de marcas
 
 
-            } else if(tabla.equalsIgnoreCase("grupo"))
+            }
+            else if(tabla.equalsIgnoreCase("grupo"))
             {
                 setContentView(R.layout.activity_grupo);
                 grabar = (Button) findViewById(R.id.grabar);
@@ -110,7 +111,8 @@ public class Controlador   extends AppCompatActivity
                 position = 1;
                 cargaLista();
 
-            }else if(tabla.equalsIgnoreCase("marcas"))
+            }
+            else if(tabla.equalsIgnoreCase("marcas"))
             {
                 setContentView(R.layout.activity_marca);
                 grabar = (Button) findViewById(R.id.grabar);
@@ -127,7 +129,8 @@ public class Controlador   extends AppCompatActivity
                 cols = Modelo.colsDefault;
                 position = 1;
                 cargaLista();
-            }else if(tabla.equalsIgnoreCase("usuarios"))
+            }
+            else if(tabla.equalsIgnoreCase("usuarios"))
             {
                 setContentView(R.layout.activity_usuario);
                 grabar = (Button) findViewById(R.id.grabar);
@@ -412,7 +415,8 @@ public class Controlador   extends AppCompatActivity
                 }
             });//FIN BUSCAR
 
-            limpiar.setOnClickListener(new View.OnClickListener() {
+            limpiar.setOnClickListener(new View.OnClickListener()
+            {
                 @Override
                 public void onClick(View v) {
                     accion =1;
