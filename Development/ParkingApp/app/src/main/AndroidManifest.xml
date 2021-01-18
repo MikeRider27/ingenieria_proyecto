@@ -9,10 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingApp">
+        <activity android:name=".UsuarioActivity"></activity>
+        <activity android:name=".TipobahiaActivity" />
+        <activity android:name=".ZonaActivity" />
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.ParkingApp.NoActionBar"></activity>
+            android:theme="@style/Theme.ParkingApp.NoActionBar" />
         <activity android:name=".MarcaActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
