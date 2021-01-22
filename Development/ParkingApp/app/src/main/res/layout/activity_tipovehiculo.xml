@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClienteActivity"
+    tools:context=".TipovehiculoActivity"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cliente"
+        android:text="Tipo de Vehiculo"
         android:textAlignment="center"
 
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -23,7 +23,7 @@
         android:orientation="vertical"
         android:layout_margin="15dp">
         <EditText
-            android:id="@+id/id_cliente"
+            android:id="@+id/id_tipvehiculo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -32,45 +32,29 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
-            android:id="@+id/cedula"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Cedula"
-            app:layout_constraintTop_toBottomOf="@+id/id_cliente" />
-        <EditText
-            android:id="@+id/nombre"
+            android:id="@+id/nom_tipvehiculo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Nombre"
-            app:layout_constraintTop_toBottomOf="@+id/cedula" />
+            app:layout_constraintTop_toBottomOf="@+id/id_tipvehiculo" />
         <EditText
-            android:id="@+id/celular"
+            android:id="@+id/tarifa_hora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Celular"
-            app:layout_constraintTop_toBottomOf="@+id/nombre" />
+            android:text="Tarifa/Hora"
+            app:layout_constraintTop_toBottomOf="@+id/nom_tipvehiculo" />
         <EditText
-            android:id="@+id/direccion"
+            android:id="@+id/tarifa_dia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Direccion"
-            app:layout_constraintTop_toBottomOf="@+id/celular" />
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textEmailAddress"
-            android:text="Email"
-            app:layout_constraintTop_toBottomOf="@+id/direccion" />
+            android:text="Tarifa/Dia"
+            app:layout_constraintTop_toBottomOf="@+id/tarifa_hora" />
     </LinearLayout>
 
 

@@ -67,9 +67,21 @@ public class MenuActivity extends AppCompatActivity  implements NavigationView.O
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+      int id = item.getItemId();
         if(id == R.id.nav_marca){
             Intent i = new Intent(MenuActivity.this, MarcaActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_zona){
+            Intent i = new Intent(MenuActivity.this, ZonaActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_tipobahia){
+            Intent i = new Intent(MenuActivity.this, TipbahiaActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_cliente){
+            Intent i = new Intent(MenuActivity.this, ClienteActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_tipovehiculo){
+            Intent i = new Intent(MenuActivity.this, TipovehiculoActivity.class);
             startActivity(i);
         }
         return false;

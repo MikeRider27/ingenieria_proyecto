@@ -3,36 +3,36 @@ package com.mavc.parkingapp.DTO;
 import androidx.annotation.NonNull;
 
 public class TipobahiaDTO {
-    private Integer id_tipbahia;
-    private String nom_tipbahia;
+    private String nom_tbahia;
+    private Integer id_tbahia;
 
-    public  TipobahiaDTO() {
+    public TipobahiaDTO() {
     }
 
-    public TipobahiaDTO(Integer id_tipbahia, String nom_tipbahia) {
-        this.id_tipbahia = id_tipbahia;
-        this.nom_tipbahia = nom_tipbahia;
+    public TipobahiaDTO(Integer id_tbahia, String nom_tbahia) {
+        this.id_tbahia = id_tbahia;
+        this.nom_tbahia = nom_tbahia;
     }
 
-    public Integer getId_tipbahia() {
-        return id_tipbahia;
+    public Integer getId_tbahia() {
+        return id_tbahia;
     }
 
-    public void setId_tipbahia(Integer id_tipbahia) {
-        this.id_tipbahia = id_tipbahia;
+    public void setId_tbahia(Integer id_tbahia) {
+        this.id_tbahia = id_tbahia;
     }
 
-    public String getNom_tipbahia() {
-        return nom_tipbahia;
+    public String getNom_tbahia() {
+        return nom_tbahia;
     }
 
-    public void setNom_tipbahia(String nom_tipbahia) {
-        this.nom_tipbahia = nom_tipbahia;
+    public void setNom_tbahia(String nom_tbahia) {
+        this.nom_tbahia = nom_tbahia;
     }
 
     @NonNull
     @Override
     public String toString() {
-        return id_tipbahia + " - " + nom_tipbahia;
+        return id_tbahia + " - " + nom_tbahia;
     }
 }

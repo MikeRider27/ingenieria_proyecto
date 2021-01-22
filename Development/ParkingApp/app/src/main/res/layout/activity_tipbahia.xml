@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TipobahiaActivity"
+    tools:context=".TipbahiaActivity"
     android:orientation="vertical">
 
     <TextView
@@ -23,7 +23,7 @@
         android:orientation="vertical"
         android:layout_margin="15dp">
         <EditText
-            android:id="@+id/txt_id_tipbahia"
+            android:id="@+id/txt_id_tbahia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -32,13 +32,13 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
-            android:id="@+id/txt_nom_tipbahia"
+            android:id="@+id/txt_nom_tbahia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Descripcion"
-            app:layout_constraintTop_toBottomOf="@+id/txt_id_tipbahia" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_id_tbahia" />
     </LinearLayout>
 
 

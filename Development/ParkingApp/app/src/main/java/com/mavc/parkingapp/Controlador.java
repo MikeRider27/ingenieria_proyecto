@@ -68,8 +68,8 @@ public class Controlador   extends AppCompatActivity
                 eliminar = (Button) findViewById(R.id.btnEliminar);
 
                 codigo = (EditText) findViewById(R.id.txt_id_usuario);
-                nombre = (EditText) findViewById(R.id.txt_usu_nombre);
-                login = (EditText) findViewById(R.id.txt_usu_nick);
+                nombre = (EditText) findViewById(R.id.txt_nom_usuario);
+                login = (EditText) findViewById(R.id.txt_nick);
                 clave = (EditText) findViewById(R.id.txt_usu_clave);
 
                 codigo.setEnabled(false);
@@ -502,7 +502,7 @@ public class Controlador   extends AppCompatActivity
 
         Database database = new Database(this);
 
-        fila =database.getReadableDatabase().rawQuery("SELECT codigo,descripcion FROM "+ tabla +" ORDER BY codigo ", null);
+        fila =database.getReadableDatabase().rawQuery("SELECT codigo,descripcion FROM "+ tabla +" ORDERBY codigo ", null);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.mytextview);
 

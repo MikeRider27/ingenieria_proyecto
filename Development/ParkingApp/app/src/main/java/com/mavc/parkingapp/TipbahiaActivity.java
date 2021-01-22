@@ -7,60 +7,49 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.mavc.parkingapp.DAO.ZonaDAO;
-import com.mavc.parkingapp.DTO.ZonaDTO;
+import com.mavc.parkingapp.DAO.TipobahiaDAO;
+import com.mavc.parkingapp.DTO.TipobahiaDTO;
 
 import java.util.List;
 
-public class UsuarioActivity extends AppCompatActivity {
+public class TipbahiaActivity extends AppCompatActivity {
 
     Button btnAgregar, btnEditar, btnEliminar, btnGrabar;
-    EditText txtCodigo, txtNombre, txtNick, txtEmail, txtContrasena, txtestado;
-    CheckBox checEstado;
+    EditText txtCodigo, txtDescri;
     ListView lista;
     Integer operacion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuario);
+        setContentView(R.layout.activity_tipbahia);
 
         btnAgregar = findViewById(R.id.btnAgregar);
         btnEditar = findViewById(R.id.btnEditar);
         btnEliminar = findViewById(R.id.btnEliminar);
         btnGrabar = findViewById(R.id.btnGrabar);
 
-        txtCodigo = findViewById(R.id.txt_id_usuario);
-        txtNombre = findViewById(R.id.txt_nom_usuario);
-        txtNick = findViewById(R.id.txt_nick);
-        txtEmail = findViewById(R.id.txt_usu_email);
-        txtContrasena = findViewById(R.id.txt_usu_clave);
-        checEstado = findViewById(R.id.check_estado);
+        txtCodigo = findViewById(R.id.txt_id_tbahia);
+        txtDescri = findViewById(R.id.txt_nom_tbahia);
 
-
-        listarZona();
+        listarTipbahia();
 
         btnAgregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 operacion = 1;
                 txtCodigo.setText("0");
-                txtNombre.setText("");
-                txtNick.setText("");
-                txtEmail.setText("");
-                txtContrasena.setText("");
-                checEstado.setChecked(true);
+                txtDescri.setText("");
             }
         });
 
         btnGrabar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                grabarZona();
+                grabarTipbahia();
             }
         });
 
@@ -84,37 +73,37 @@ public class UsuarioActivity extends AppCompatActivity {
                 String item = parent.getItemAtPosition(position).toString();
                 String[] partes = item.split(" - ");
                 txtCodigo.setText(partes[0]);
-                txtNombre.setText(partes[1]);
+                txtDescri.setText(partes[1]);
                 return true;
             }
         });
 
     }
 
-    public void grabarZona(){
-        ZonaDAO dao = new ZonaDAO(getApplicationContext());
+    public void grabarTipbahia(){
+        TipobahiaDAO dao = new TipobahiaDAO(getApplicationContext());
         if(operacion == 1){
-            dao.agregar(new ZonaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtNombre.getText().toString()));
+            dao.agregar(new TipobahiaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
         }
 
         if(operacion == 2){
-            dao.editar(new ZonaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtNombre.getText().toString()));
+            dao.editar(new TipobahiaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
         }
 
         if(operacion == 3){
-            dao.eliminar(new ZonaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtNombre.getText().toString()));
+            dao.eliminar(new TipobahiaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
         }
 
 
-        listarZona();
+        listarTipbahia();
     }
 
-    public void listarZona(){
-        ZonaDAO dao = new ZonaDAO(getApplicationContext());
-        List<ZonaDTO> listaZonas = dao.listar();
+    public void listarTipbahia(){
+        TipobahiaDAO dao = new TipobahiaDAO(getApplicationContext());
+        List<TipobahiaDTO> listaTbahia = dao.listar();
         lista = findViewById(R.id.listView2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.mytextview);
-        for (ZonaDTO lm: listaZonas){
+        for (TipobahiaDTO lm: listaTbahia){
             adapter.add(lm.toString());
         }
         lista.setAdapter(adapter);

@@ -30,7 +30,7 @@
             android:title="Vehiculo" />
 
         <item
-            android:id="@+id/nav_tipo_vehiculo"
+            android:id="@+id/nav_tipovehiculo"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo_vehiculo" />
 
@@ -40,7 +40,7 @@
             android:title="Bahia" />
 
         <item
-            android:id="@+id/nav_tipo_bahia"
+            android:id="@+id/nav_tipobahia"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo_bahia" />
 
@@ -50,12 +50,12 @@
             android:title="Movimiento" />
 
         <item
-            android:id="@+id/nav_entrada_vehiculo"
+            android:id="@+id/nav_entrada"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="entrada_vehiculo" />
 
         <item
-            android:id="@+id/nav_salida_vehiculo"
+            android:id="@+id/nav_salida"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="salida_vehiculo" />
     </group>

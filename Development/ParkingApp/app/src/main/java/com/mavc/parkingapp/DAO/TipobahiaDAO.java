@@ -25,19 +25,19 @@ public class TipobahiaDAO {
 
     public void agregar(TipobahiaDTO tipobahiaDTO){
         ContentValues valores = new ContentValues();
-        valores.put("descripcion",tipobahiaDTO.getNom_tipbahia());
+        valores.put("descripcion",tipobahiaDTO.getNom_tbahia());
         database.insert("tipo_bahias", "descripcion" ,valores );
     }
 
     public void editar(TipobahiaDTO tipobahiaDTO){
         ContentValues valores = new ContentValues();
-        valores.put("descripcion",tipobahiaDTO.getNom_tipbahia());
+        valores.put("descripcion",tipobahiaDTO.getNom_tbahia());
         // database.update("marca",valores,"codigo =?",new String[]{String.valueOf(marcasDTO.getId_marca())});
-        database.update("tipo_bahias",valores,"codigo = "+tipobahiaDTO.getId_tipbahia(),null);
+        database.update("tipo_bahias",valores,"codigo = "+tipobahiaDTO.getId_tbahia(),null);
     }
 
     public void eliminar(TipobahiaDTO tipobahiaDTO){
-        database.delete("tipo_bahias","codigo = "+tipobahiaDTO.getId_tipbahia(),null);
+        database.delete("tipo_bahias","codigo = "+tipobahiaDTO.getId_tbahia(),null);
     }
 
     public List<TipobahiaDTO> listar(){
@@ -60,7 +60,7 @@ public class TipobahiaDAO {
     public TipobahiaDTO buscarID(TipobahiaDTO tipobahiaDTO){
         TipobahiaDTO dto = null;
         Cursor c = null;
-        c = database.query("tipo_bahias",new String[]{"codigo","descripcion"},"codigo = ?",new String[]{String.valueOf(tipobahiaDTO.getId_tipbahia())},null,null,null);
+        c = database.query("tipo_bahias",new String[]{"codigo","descripcion"},"codigo = ?",new String[]{String.valueOf(tipobahiaDTO.getId_tbahia())},null,null,null);
         if(c.moveToFirst()){
             dto = new TipobahiaDTO(c.getInt(0),c.getString(1));
         }
