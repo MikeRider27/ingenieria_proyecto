@@ -3,60 +3,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <group android:checkableBehavior="single">
+        <item android:title="Mantenimiento y Seguridad">
+        <menu>
         <item
-            android:id="@+id/Referenciales"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Referenciales"/>
-
-   <item
             android:id="@+id/nav_marca"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Marca" />
-
         <item
             android:id="@+id/nav_zona"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Zona" />
 
         <item
             android:id="@+id/nav_cliente"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Cliente" />
 
         <item
             android:id="@+id/nav_vehiculo"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Vehiculo" />
 
         <item
             android:id="@+id/nav_tipovehiculo"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Tipo_vehiculo" />
 
         <item
             android:id="@+id/nav_bahia"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Bahia" />
 
         <item
             android:id="@+id/nav_tipobahia"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Tipo_bahia" />
+        </menu>
+        </item>
 
-        <item
-            android:id="@+id/Movimiento"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Movimiento" />
 
-        <item
-            android:id="@+id/nav_entrada"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="entrada_vehiculo" />
 
-        <item
-            android:id="@+id/nav_salida"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="salida_vehiculo" />
+
     </group>
+    <item android:title="Movimiento">
+        <menu>
+            <item
+                android:id="@+id/nav_entrada"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Entrada de Vehiculos" />
+            <item
+                android:id="@+id/nav_salida"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Salida de Vehiculos" />
+
+
+        </menu>
+    </item>
+
+    <item android:title="Sesion">
+        <menu>
+            <item
+                android:id="@+id/acerca"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Acerca de..." />
+
+            <item
+                android:id="@+id/sesion"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Cerrar Sesion" />
+
+        </menu>
+    </item>
+
+
 </menu>
