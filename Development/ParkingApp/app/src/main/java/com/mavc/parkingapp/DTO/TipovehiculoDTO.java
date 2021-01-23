@@ -18,6 +18,10 @@ public class TipovehiculoDTO {
         this.tarifa_dia = tarifa_dia;
     }
 
+    public TipovehiculoDTO(Integer id_tipvehiculo) {
+        this.id_tipvehiculo = id_tipvehiculo;
+    }
+
     public Integer getId_tipvehiculo() {
         return id_tipvehiculo;
     }

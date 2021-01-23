@@ -14,6 +14,10 @@ public class MarcasDTO {
         this.nom_marca = nom_marca;
     }
 
+    public MarcasDTO(Integer id_marca) {
+        this.id_marca = id_marca;
+    }
+
     public Integer getId_marca() {
         return id_marca;
     }

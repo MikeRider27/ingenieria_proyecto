@@ -22,6 +22,10 @@ public class ClienteDTO {
         this.email = email;
     }
 
+    public ClienteDTO(Integer id_cliente) {
+        this.id_cliente = id_cliente;
+    }
+
     public Integer getId_cliente() {
         return id_cliente;
     }

@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         ////
         Database database = new Database(this);
 
-        fila =database.getReadableDatabase().rawQuery("select nick,contrasena,nombre from usuario where nick='"+ usuario +"' and contrasena='"+contrasena+"'", null);
+        fila =database.getReadableDatabase().rawQuery("select id_usuario, nick,contrasena,nombre from usuario where nick='"+ usuario +"' and contrasena='"+contrasena+"'", null);
 
         if (fila.moveToFirst())
         {
+            ParametrosGlobales.idUsuario = fila.getInt(0);
             //cierra activity Login
             finish();
 
