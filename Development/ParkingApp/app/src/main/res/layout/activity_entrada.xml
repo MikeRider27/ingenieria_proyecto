@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Chapa"
+                    android:hint="Chapa"
                     app:layout_constraintTop_toBottomOf="@+id/textView" />
                 <TextView
                     android:layout_width="match_parent"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Color"
+                    android:hint="Color"
                     app:layout_constraintTop_toBottomOf="@+id/cbo_id_tipovehiculo" />
                 <EditText
                     android:id="@+id/nombre"
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Nombre"
+                    android:hint="Nombre"
                     app:layout_constraintTop_toBottomOf="@+id/color" />
                 <EditText
                     android:id="@+id/cedula"
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Cedula"
+                    android:hint="Cedula"
                     app:layout_constraintTop_toBottomOf="@+id/nombre" />
                 <EditText
                     android:id="@+id/celular"
@@ -98,7 +98,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Celular"
+                    android:hint="Celular"
                     app:layout_constraintTop_toBottomOf="@+id/cedula" />
                 <EditText
                     android:id="@+id/direccion"
@@ -106,7 +106,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Direccion"
+                    android:hint="Direccion"
                     app:layout_constraintTop_toBottomOf="@+id/celular" />
                 <EditText
                     android:id="@+id/email"
@@ -114,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:text="Email"
+                    android:hint="Email"
                     app:layout_constraintTop_toBottomOf="@+id/direccion" />
 
                 <EditText
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Fecha de Entrada"
+                    android:hint="Fecha de Entrada"
                     app:layout_constraintTop_toBottomOf="@+id/direccion" />
                 <EditText
                     android:id="@+id/hora_entrada"
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Hora de Entrada"
+                    android:hint="Hora de Entrada"
                     app:layout_constraintTop_toBottomOf="@+id/fecha_entrada" />
                 <EditText
                     android:id="@+id/observacion"
@@ -139,7 +139,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Observacion"
+                    android:hint="Observacion"
                     app:layout_constraintTop_toBottomOf="@+id/hora_entrada" />
             </LinearLayout>
 
@@ -155,14 +155,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Agregar" />
+                    android:text="Entrada" />
 
                 <Button
                     android:id="@+id/btnEditar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Modificar"
+                    android:text="Cancelar"
                     android:layout_marginLeft="30dp"/>
 
 

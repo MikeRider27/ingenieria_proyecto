@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="ID"
+            android:hint="ID"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre"
+            android:hint="Nombre"
             app:layout_constraintTop_toBottomOf="@+id/id_tipvehiculo" />
         <EditText
             android:id="@+id/tarifa_hora"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Tarifa/Hora"
+            android:hint="Tarifa/Hora"
             app:layout_constraintTop_toBottomOf="@+id/nom_tipvehiculo" />
         <EditText
             android:id="@+id/tarifa_dia"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Tarifa/Dia"
+            android:hint="Tarifa/Dia"
             app:layout_constraintTop_toBottomOf="@+id/tarifa_hora" />
     </LinearLayout>
 

@@ -30,7 +30,7 @@ public class VehiculoDAO {
         Cursor c = null;
         database = dbHelper.getReadableDatabase();
         //c = database.query("zona",new String[]{"codigo","descripcion"},null,null,null,null," codigo ASC ");
-        c = database.query("vehiculo",new String[]{"chapa","color", "id_tipvehiculo", "id_marca","id_cliente"},null,null,null,null," id_bahia ASC ");
+        c = database.query("vehiculo",new String[]{"chapa","color", "id_tipvehiculo", "id_marca","id_cliente"},null,null,null,null," chapa ASC ");
 
 
         while (c.moveToNext())

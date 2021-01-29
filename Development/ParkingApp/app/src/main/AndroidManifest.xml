@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingApp">
-        <activity android:name=".EntradaActivity"></activity>
+        <activity android:name=".RegistroActivity"></activity>
+        <activity android:name=".SalidaActivity" />
+        <activity android:name=".EntradaActivity" />
         <activity android:name=".BahiaActivity" />
         <activity android:name=".TipovehiculoActivity" />
         <activity android:name=".TipbahiaActivity" />

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="ID"
+            android:hint="ID"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Cedula"
+            android:hint="Cedula"
             app:layout_constraintTop_toBottomOf="@+id/id_cliente" />
         <EditText
             android:id="@+id/nombre"
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre"
+            android:hint="Nombre"
             app:layout_constraintTop_toBottomOf="@+id/cedula" />
         <EditText
             android:id="@+id/celular"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Celular"
+            android:hint="Celular"
             app:layout_constraintTop_toBottomOf="@+id/nombre" />
         <EditText
             android:id="@+id/direccion"
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Direccion"
+            android:hint="Direccion"
             app:layout_constraintTop_toBottomOf="@+id/celular" />
         <EditText
             android:id="@+id/email"
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:text="Email"
+            android:hint="Email"
             app:layout_constraintTop_toBottomOf="@+id/direccion" />
     </LinearLayout>
 

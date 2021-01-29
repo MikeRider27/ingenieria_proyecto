@@ -86,8 +86,14 @@ public class MenuActivity extends AppCompatActivity  implements NavigationView.O
         }else if(id == R.id.nav_bahia){
             Intent i = new Intent(MenuActivity.this, BahiaActivity.class);
             startActivity(i);
+        }else if(id == R.id.nav_vehiculo){
+            Intent i = new Intent(MenuActivity.this, VehiculoActivity.class);
+            startActivity(i);
         }else if(id == R.id.nav_entrada){
             Intent i = new Intent(MenuActivity.this, EntradaActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_salida){
+            Intent i = new Intent(MenuActivity.this, SalidaActivity.class);
             startActivity(i);
         }
         return false;

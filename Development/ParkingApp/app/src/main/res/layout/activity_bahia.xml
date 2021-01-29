@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="ID"
+            android:hint="ID"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Nombre"
+            android:hint="Nombre"
             app:layout_constraintTop_toBottomOf="@+id/id_tipvehiculo" />
 
         <TextView

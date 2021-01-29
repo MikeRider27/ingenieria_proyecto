@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.mavc.parkingapp.DAO.MarcasDAO;
 import com.mavc.parkingapp.DTO.MarcasDTO;
@@ -84,18 +85,27 @@ public class MarcaActivity extends AppCompatActivity {
         MarcasDAO dao = new MarcasDAO(getApplicationContext());
         if(operacion == 1){
             dao.agregar(new MarcasDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
+            Toast.makeText(this,"Se registro correctamente",Toast.LENGTH_LONG).show();
         }
 
         if(operacion == 2){
             dao.editar(new MarcasDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
+            Toast.makeText(this,"Se modifico correctamente",Toast.LENGTH_LONG).show();
         }
 
         if(operacion == 3){
             dao.eliminar(new MarcasDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
+            Toast.makeText(this,"Se elimino correctamente",Toast.LENGTH_LONG).show();
         }
 
 
+        limpiar();
         listarMarca();
+    }
+    public void limpiar(){
+        txtCodigo.setText("");
+        txtDescri.setText("");
+        txtCodigo.requestFocus();
     }
 
     public void listarMarca(){
