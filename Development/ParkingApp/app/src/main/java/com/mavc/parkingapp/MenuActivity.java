@@ -68,7 +68,10 @@ public class MenuActivity extends AppCompatActivity  implements NavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
       int id = item.getItemId();
-        if(id == R.id.nav_marca){
+        if(id == R.id.nav_usuario){
+            Intent i = new Intent(MenuActivity.this, UsuarioActivity.class);
+            startActivity(i);
+        }else if(id == R.id.nav_marca){
             Intent i = new Intent(MenuActivity.this, MarcaActivity.class);
             startActivity(i);
         }else if(id == R.id.nav_zona){

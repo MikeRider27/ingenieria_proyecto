@@ -56,9 +56,10 @@ public class MainActivity extends AppCompatActivity {
         ////
     }
 
-    public void msalir(View v)
+    public void registrar(View v)
     {
-        finish();
+        Intent i = new Intent(MainActivity.this, RegistroActivity.class);
+        startActivity(i);
     }
 
 }

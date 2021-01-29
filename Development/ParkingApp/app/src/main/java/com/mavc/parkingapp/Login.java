@@ -56,8 +56,10 @@ public class Login extends AppCompatActivity
         ////
     }
 
-    public void msalir(View v)
+    public void registrar(View v)
     {
-        finish();
+        Intent i = new Intent(Login.this, MainActivity.class);
+        i.putExtra("logueado",true);
+        startActivity(i);
     }
 }

@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ParkingApp">
-        <activity android:name=".RegistroActivity"></activity>
+        <activity android:name=".UsuarioActivity"></activity>
+        <activity android:name=".RegistroActivity" />
         <activity android:name=".SalidaActivity" />
         <activity android:name=".EntradaActivity" />
         <activity android:name=".BahiaActivity" />
@@ -17,7 +18,6 @@
         <activity android:name=".TipbahiaActivity" />
         <activity android:name=".VehiculoActivity" />
         <activity android:name=".ClienteActivity" />
-        <activity android:name=".UsuarioActivity" />
         <activity android:name=".ZonaActivity" />
         <activity
             android:name=".MenuActivity"
