@@ -11,11 +11,6 @@ public class TipovehiculoDTO {
     public  TipovehiculoDTO() {
     }
 
-    public TipovehiculoDTO(Integer id_tipvehiculo, String nom_tipvehiculo) {
-        this.id_tipvehiculo = id_tipvehiculo;
-        this.nom_tipvehiculo = nom_tipvehiculo;
-    }
-
     public TipovehiculoDTO(Integer id_tipvehiculo, String nom_tipvehiculo, String tarifa_hora, String tarifa_dia) {
         this.id_tipvehiculo = id_tipvehiculo;
         this.nom_tipvehiculo = nom_tipvehiculo;

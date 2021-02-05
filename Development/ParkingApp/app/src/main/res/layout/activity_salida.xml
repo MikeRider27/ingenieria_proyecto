@@ -80,14 +80,14 @@
                 android:layout_margin="15dp"
                 android:gravity="center">
                 <Button
-                    android:id="@+id/btnAgregar"
+                    android:id="@+id/btnSalir"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Salida" />
 
                 <Button
-                    android:id="@+id/btnEditar"
+                    android:id="@+id/Cancelar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"

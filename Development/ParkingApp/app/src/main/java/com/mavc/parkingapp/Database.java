@@ -27,8 +27,9 @@ public class Database extends SQLiteOpenHelper
 
         database.execSQL("create table entrada_salida(id_entradasalida integer primary key autoincrement,chapa text, fecha_entrada text,hora_entrada text, fecha_salida text,hora_salida text,id_bahia integer,monto integer,tiempo_totaL text,observaciones text,estado integer,id_usuario integer)");
 
-        database.execSQL("create table usuario(id_usuario integer primary key autoincrement,nick text,nombre text, email text,contrasena text,estado integer)");
-        database.execSQL("insert into usuario(nick,nombre,email,contrasena,estado) values('admin','Miguel Villalba','mike@gmail.com','123', 1)");
+        database.execSQL("create table usuario(id_usuario integer primary key autoincrement,nick text,nombre text,email text,contrasena text,estado text)");
+        database.execSQL("insert into usuario(nick,nombre,email,contrasena,estado) values('admin','Miguel Villalba','mike@gmail.com','123', 'Activo')");
+        database.execSQL("insert into usuario(nick,nombre,email,contrasena,estado) values('dueño','Marco Alvarez Villalba','marco@gmail.com','123', 'Activo')");
 
         database.execSQL("insert into zona(descripcion) values('Zona A')");
         database.execSQL("insert into tipo_bahias(descripcion) values('Tipo A')");

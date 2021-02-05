@@ -96,6 +96,7 @@ public class BahiaActivity extends AppCompatActivity {
         BahiaDAO dao = new BahiaDAO(getApplicationContext());
         if(operacion == 1){
             dao.agregar(new BahiaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString(), (TipobahiaDTO)cboTipo.getSelectedItem(), (ZonaDTO)cboZona.getSelectedItem()));
+            Toast.makeText(this,"Se registro correctamente",Toast.LENGTH_LONG).show();
         }
 /*
         if(operacion == 2){

@@ -8,8 +8,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.CheckBox;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.widget.CheckBox;
+
 
 import com.mavc.parkingapp.DAO.UsuarioDAO;
 import com.mavc.parkingapp.DTO.UsuarioDTO;
@@ -23,7 +25,6 @@ public class UsuarioActivity extends AppCompatActivity {
     CheckBox estado;
     ListView lista;
     Integer operacion;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +45,39 @@ public class UsuarioActivity extends AppCompatActivity {
         listarUsuario();
 
 
+        btnAgregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = 1;
+                id_usuario.setText("0");
+                nick.setText("");
+                nombre.setText("");
+                email.setText("");
+                contrasena.setText("");
 
+            }
+        });
+
+        btnGrabar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                grabarUsuario();
+            }
+        });
+
+        btnEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = 2;
+            }
+        });
+
+        btnEliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacion = 3;
+            }
+        });
 
         lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -63,14 +96,34 @@ public class UsuarioActivity extends AppCompatActivity {
 
     }
 
+    public void grabarUsuario(){
+        UsuarioDAO dao = new UsuarioDAO(getApplicationContext());
+        if(operacion == 1){
+            dao.agregar(new UsuarioDTO(Integer.parseInt(id_usuario.getText().toString()), nick.getText().toString(), nombre.getText().toString(), email.getText().toString(), contrasena.getText().toString(), estado.getText().toString()));
+            Toast.makeText(this,"Se registro correctamente",Toast.LENGTH_LONG).show();
+        }
 
+        if(operacion == 2){
+            dao.editar(new UsuarioDTO(Integer.parseInt(id_usuario.getText().toString()), nick.getText().toString(), nombre.getText().toString(), email.getText().toString(), contrasena.getText().toString(), estado.getText().toString()));
+
+            Toast.makeText(this,"Se modifico correctamente",Toast.LENGTH_LONG).show();
+        }
+
+        if(operacion == 3){
+            dao.eliminar(new UsuarioDTO(Integer.parseInt(id_usuario.getText().toString()), nick.getText().toString(), nombre.getText().toString(), email.getText().toString(), contrasena.getText().toString(), estado.getText().toString()));
+            Toast.makeText(this,"Se elimino correctamente",Toast.LENGTH_LONG).show();
+        }
+
+
+        listarUsuario();
+    }
 
     public void listarUsuario(){
         UsuarioDAO dao = new UsuarioDAO(getApplicationContext());
-        List<UsuarioDTO> listaUsuarios = dao.listar();
+        List<UsuarioDTO> listarUsuarios = dao.listar();
         lista = findViewById(R.id.listView2);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.mytextview);
-        for (UsuarioDTO lm: listaUsuarios){
+        for (UsuarioDTO lm: listarUsuarios){
             adapter.add(lm.toString());
         }
         lista.setAdapter(adapter);

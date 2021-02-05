@@ -70,7 +70,7 @@ public class Controlador   extends AppCompatActivity
                 codigo = (EditText) findViewById(R.id.txt_id_usuario);
                 nombre = (EditText) findViewById(R.id.nombre);
                 login = (EditText) findViewById(R.id.nick);
-                clave = (EditText) findViewById(R.id.txt_usu_clave);
+                clave = (EditText) findViewById(R.id.contrasena);
 
                 codigo.setEnabled(false);
                 cols = Modelo.colsPat;

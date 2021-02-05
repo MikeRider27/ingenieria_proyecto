@@ -5,19 +5,23 @@ import androidx.annotation.NonNull;
 public class VehiculoDTO {
     private String chapa;
     private String color;
-    private TipovehiculoDTO tipovehiculoDTO;
-    private MarcasDTO marcasDTO;
+    private TipovehiculoDTO tipoVehiculo;
+    private MarcasDTO marca;
     private ClienteDTO cliente;
 
-    public VehiculoDTO(String chapa) {
+    public VehiculoDTO() {
     }
 
-    public VehiculoDTO(String chapa, String color, TipovehiculoDTO tipovehiculoDTO, MarcasDTO marcasDTO, ClienteDTO cliente) {
+    public VehiculoDTO(String chapa, String color, TipovehiculoDTO tipoVehiculo, MarcasDTO marca, ClienteDTO cliente) {
         this.chapa = chapa;
         this.color = color;
-        this.tipovehiculoDTO = tipovehiculoDTO;
-        this.marcasDTO = marcasDTO;
+        this.tipoVehiculo = tipoVehiculo;
+        this.marca = marca;
         this.cliente = cliente;
+    }
+
+    public VehiculoDTO(String chapa) {
+        this.chapa = chapa;
     }
 
     public String getChapa() {
@@ -36,20 +40,20 @@ public class VehiculoDTO {
         this.color = color;
     }
 
-    public TipovehiculoDTO getTipovehiculoDTO() {
-        return tipovehiculoDTO;
+    public TipovehiculoDTO getTipoVehiculo() {
+        return tipoVehiculo;
     }
 
-    public void setTipovehiculoDTO(TipovehiculoDTO tipovehiculoDTO) {
-        this.tipovehiculoDTO = tipovehiculoDTO;
+    public void setTipoVehiculo(TipovehiculoDTO tipoVehiculo) {
+        this.tipoVehiculo = tipoVehiculo;
     }
 
-    public MarcasDTO getMarcasDTO() {
-        return marcasDTO;
+    public MarcasDTO getMarca() {
+        return marca;
     }
 
-    public void setMarcasDTO(MarcasDTO marcasDTO) {
-        this.marcasDTO = marcasDTO;
+    public void setMarca(MarcasDTO marca) {
+        this.marca = marca;
     }
 
     public ClienteDTO getCliente() {
@@ -59,10 +63,9 @@ public class VehiculoDTO {
     public void setCliente(ClienteDTO cliente) {
         this.cliente = cliente;
     }
-
     @NonNull
     @Override
     public String toString() {
-        return chapa+" - "+color+" - "+tipovehiculoDTO.getNom_tipvehiculo()+" - "+marcasDTO.getNom_marca()+" - "+cliente.getNombre();
+        return chapa+" - "+color+" - "+tipoVehiculo.getNom_tipvehiculo()+" - "+marca.getNom_marca()+" - "+cliente.getNombre();
     }
 }

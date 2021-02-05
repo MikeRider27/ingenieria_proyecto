@@ -3,18 +3,17 @@ package com.mavc.parkingapp.DTO;
 import androidx.annotation.NonNull;
 
 public class UsuarioDTO {
-
     private Integer id_usuario;
     private String nick;
     private String nombre;
     private String email;
     private String contrasena;
-    private Integer estado;
+    private String estado;
 
-    public UsuarioDTO() {
+    public  UsuarioDTO() {
     }
 
-    public UsuarioDTO(Integer id_usuario, String nick, String nombre, String email, String contrasena, Integer estado) {
+    public UsuarioDTO(Integer id_usuario, String nick, String nombre, String email, String contrasena, String estado) {
         this.id_usuario = id_usuario;
         this.nick = nick;
         this.nombre = nombre;
@@ -63,11 +62,11 @@ public class UsuarioDTO {
         this.contrasena = contrasena;
     }
 
-    public Integer getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Integer estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

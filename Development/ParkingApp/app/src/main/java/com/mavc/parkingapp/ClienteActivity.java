@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.mavc.parkingapp.DAO.ClienteDAO;
 import com.mavc.parkingapp.DTO.ClienteDTO;
@@ -96,14 +97,17 @@ public class ClienteActivity extends AppCompatActivity {
         ClienteDAO dao = new ClienteDAO(getApplicationContext());
         if(operacion == 1){
             dao.agregar(new ClienteDTO(Integer.parseInt(id_cliente.getText().toString()), cedula.getText().toString(), nombre.getText().toString(), celular.getText().toString(), direccion.getText().toString(), email.getText().toString()));
+            Toast.makeText(this,"Se registro correctamente",Toast.LENGTH_LONG).show();
         }
 
         if(operacion == 2){
             dao.editar(new ClienteDTO(Integer.parseInt(id_cliente.getText().toString()), cedula.getText().toString(), nombre.getText().toString(), celular.getText().toString(), direccion.getText().toString(), email.getText().toString()));
+            Toast.makeText(this,"Se modifico correctamente",Toast.LENGTH_LONG).show();
         }
 
         if(operacion == 3){
             dao.eliminar(new ClienteDTO(Integer.parseInt(id_cliente.getText().toString()), cedula.getText().toString(), nombre.getText().toString(), celular.getText().toString(), direccion.getText().toString(), email.getText().toString()));
+            Toast.makeText(this,"Se elimino correctamente",Toast.LENGTH_LONG).show();
         }
 
 

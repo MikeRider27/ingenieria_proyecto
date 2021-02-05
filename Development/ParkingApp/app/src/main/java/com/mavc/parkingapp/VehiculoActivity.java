@@ -1,16 +1,15 @@
 package com.mavc.parkingapp;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.mavc.parkingapp.DAO.ClienteDAO;
 import com.mavc.parkingapp.DAO.MarcasDAO;
@@ -23,9 +22,7 @@ import com.mavc.parkingapp.DTO.MarcasDTO;
 import com.mavc.parkingapp.DTO.TipovehiculoDTO;
 import com.mavc.parkingapp.DTO.VehiculoDTO;
 
-
 import java.util.List;
-
 
 public class VehiculoActivity extends AppCompatActivity {
 
@@ -83,8 +80,8 @@ public class VehiculoActivity extends AppCompatActivity {
                 grabarVehiculo();
             }
         });
-
     }
+
 
     public void cargarMarcas(){
         marcasDAO = new MarcasDAO(getApplicationContext());
@@ -107,7 +104,6 @@ public class VehiculoActivity extends AppCompatActivity {
         ArrayAdapter<ClienteDTO> adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, clienteDAO.listar());
         cboCliente.setAdapter(adapter);
     }
-
     public void grabarVehiculo(){
         VehiculoDAO dao = new VehiculoDAO(getApplicationContext());
         if(operacion == 1){
@@ -117,15 +113,12 @@ public class VehiculoActivity extends AppCompatActivity {
         if(operacion == 2){
             dao.editar(new ZonaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
         }
-
         if(operacion == 3){
             dao.eliminar(new ZonaDTO(Integer.parseInt(txtCodigo.getText().toString()), txtDescri.getText().toString()));
         }
-
         listarZona();*/
         listarVehiculo();
     }
-
     public void listarVehiculo(){
         VehiculoDAO dao = new VehiculoDAO(getApplicationContext());
         List<VehiculoDTO> listarVehiculos = dao.listar();
@@ -137,6 +130,4 @@ public class VehiculoActivity extends AppCompatActivity {
         lista.setAdapter(adapter);
         dao.cerrarConexion();
     }
-
-
 }

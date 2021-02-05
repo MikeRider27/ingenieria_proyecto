@@ -31,7 +31,7 @@
             android:hint="ID"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
         <EditText
-            android:id="@+id/nombre_usuario"
+            android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -45,7 +45,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Nick"
-            app:layout_constraintTop_toBottomOf="@+id/nombre_usuario" />
+            app:layout_constraintTop_toBottomOf="@+id/nombre" />
         <EditText
             android:id="@+id/email"
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:hint="Email"
             app:layout_constraintTop_toBottomOf="@+id/nick" />
         <EditText
-            android:id="@+id/clave"
+            android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -67,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Estado"
-            app:layout_constraintTop_toBottomOf="@+id/txt_usu_clave"/>
+            app:layout_constraintTop_toBottomOf="@+id/contrasena"/>
 
     </LinearLayout>
 
