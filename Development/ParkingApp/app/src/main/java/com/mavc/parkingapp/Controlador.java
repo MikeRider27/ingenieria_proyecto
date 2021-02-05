@@ -68,8 +68,8 @@ public class Controlador   extends AppCompatActivity
                 eliminar = (Button) findViewById(R.id.btnEliminar);
 
                 codigo = (EditText) findViewById(R.id.txt_id_usuario);
-                nombre = (EditText) findViewById(R.id.txt_nom_usuario);
-                login = (EditText) findViewById(R.id.txt_nick);
+                nombre = (EditText) findViewById(R.id.nombre);
+                login = (EditText) findViewById(R.id.nick);
                 clave = (EditText) findViewById(R.id.txt_usu_clave);
 
                 codigo.setEnabled(false);

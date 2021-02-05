@@ -13,6 +13,11 @@ public class ClienteDTO {
     public  ClienteDTO() {
     }
 
+    public ClienteDTO(Integer id_cliente, String nombre) {
+        this.id_cliente = id_cliente;
+        this.nombre = nombre;
+    }
+
     public ClienteDTO(Integer id_cliente, String cedula, String nombre, String celular, String direccion, String email) {
         this.id_cliente = id_cliente;
         this.cedula = cedula;

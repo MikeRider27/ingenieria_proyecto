@@ -1,14 +1,15 @@
 package com.mavc.parkingapp.DAO;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.mavc.parkingapp.DTO.ClienteDTO;
+
 import com.mavc.parkingapp.DTO.MarcasDTO;
 import com.mavc.parkingapp.DTO.TipovehiculoDTO;
 import com.mavc.parkingapp.DTO.VehiculoDTO;
-import com.mavc.parkingapp.DTO.ZonaDTO;
+import com.mavc.parkingapp.DTO.ClienteDTO;
 import com.mavc.parkingapp.Database;
 
 import java.util.ArrayList;
@@ -25,23 +26,37 @@ public class VehiculoDAO {
         database = dbHelper.getWritableDatabase();
     }
 
+    public void agregar(VehiculoDTO vehiculoDTO){
+//        chapa, color, id_tipvehiculo, id_marca, id_cliente
+        ContentValues valores = new ContentValues();
+        valores.put("chapa",vehiculoDTO.getChapa());
+        valores.put("color",vehiculoDTO.getColor());
+        valores.put("id_tipvehiculo",vehiculoDTO.getTipovehiculoDTO().getId_tipvehiculo());
+        valores.put("id_marca",vehiculoDTO.getMarcasDTO().getId_marca());
+        valores.put("id_cliente",vehiculoDTO.getCliente().getId_cliente());
+        database.insert("vehiculo", "chapa, color, id_tipvehiculo, id_marca, id_cliente" ,valores );
+    }
+
+
+
+
     public List<VehiculoDTO> listar(){
         List<VehiculoDTO> lista = new ArrayList<>();
         Cursor c = null;
         database = dbHelper.getReadableDatabase();
         //c = database.query("zona",new String[]{"codigo","descripcion"},null,null,null,null," codigo ASC ");
-        c = database.query("vehiculo",new String[]{"chapa","color", "id_tipvehiculo", "id_marca","id_cliente"},null,null,null,null," chapa ASC ");
+        c = database.query("vehiculo",new String[]{"chapa", "color", "id_tipvehiculo", "id_marca", "id_cliente"},null,null,null,null," chapa ASC ");
 
 
         while (c.moveToNext())
         {
-            TipovehiculoDAO tvdao = new TipovehiculoDAO(context);
-            MarcasDAO mdao = new MarcasDAO(context);
             ClienteDAO cdao = new ClienteDAO(context);
+            MarcasDAO mdao = new MarcasDAO(context);
+            TipovehiculoDAO tvdao = new TipovehiculoDAO(context);
 
-            TipovehiculoDTO tvdto = tvdao.buscarID(new TipovehiculoDTO(c.getInt(2)));
-            MarcasDTO mdto = mdao.buscarID(new MarcasDTO(c.getInt(3)));
-            ClienteDTO cdto = cdao.buscarID(new ClienteDTO(c.getInt(4)));
+            ClienteDTO cdto = cdao.buscarID(new ClienteDTO(c.getInt(4),null));
+            MarcasDTO mdto = mdao.buscarID(new MarcasDTO(c.getInt(3),null));
+            TipovehiculoDTO tvdto = tvdao.buscarID(new TipovehiculoDTO(c.getInt(2),null));
 
             lista.add(new VehiculoDTO(
                     c.getString(0),
@@ -55,8 +70,6 @@ public class VehiculoDAO {
 
         return lista;
     }
-
-
     public VehiculoDTO buscarID(VehiculoDTO vehiculoDTO){
         VehiculoDTO dto = new VehiculoDTO(vehiculoDTO.getChapa());
         Cursor c = null;
@@ -82,4 +95,6 @@ public class VehiculoDAO {
     public void cerrarConexion(){
         dbHelper.close();
     }
+
+
 }

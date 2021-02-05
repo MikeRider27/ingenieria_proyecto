@@ -1,25 +1,23 @@
 package com.mavc.parkingapp.DTO;
 
+import androidx.annotation.NonNull;
+
 public class VehiculoDTO {
     private String chapa;
     private String color;
-    private TipovehiculoDTO tipoVehiculo;
-    private MarcasDTO marca;
+    private TipovehiculoDTO tipovehiculoDTO;
+    private MarcasDTO marcasDTO;
     private ClienteDTO cliente;
 
-    public VehiculoDTO() {
+    public VehiculoDTO(String chapa) {
     }
 
-    public VehiculoDTO(String chapa, String color, TipovehiculoDTO tipoVehiculo, MarcasDTO marca, ClienteDTO cliente) {
+    public VehiculoDTO(String chapa, String color, TipovehiculoDTO tipovehiculoDTO, MarcasDTO marcasDTO, ClienteDTO cliente) {
         this.chapa = chapa;
         this.color = color;
-        this.tipoVehiculo = tipoVehiculo;
-        this.marca = marca;
+        this.tipovehiculoDTO = tipovehiculoDTO;
+        this.marcasDTO = marcasDTO;
         this.cliente = cliente;
-    }
-
-    public VehiculoDTO(String chapa) {
-        this.chapa = chapa;
     }
 
     public String getChapa() {
@@ -38,20 +36,20 @@ public class VehiculoDTO {
         this.color = color;
     }
 
-    public TipovehiculoDTO getTipoVehiculo() {
-        return tipoVehiculo;
+    public TipovehiculoDTO getTipovehiculoDTO() {
+        return tipovehiculoDTO;
     }
 
-    public void setTipoVehiculo(TipovehiculoDTO tipoVehiculo) {
-        this.tipoVehiculo = tipoVehiculo;
+    public void setTipovehiculoDTO(TipovehiculoDTO tipovehiculoDTO) {
+        this.tipovehiculoDTO = tipovehiculoDTO;
     }
 
-    public MarcasDTO getMarca() {
-        return marca;
+    public MarcasDTO getMarcasDTO() {
+        return marcasDTO;
     }
 
-    public void setMarca(MarcasDTO marca) {
-        this.marca = marca;
+    public void setMarcasDTO(MarcasDTO marcasDTO) {
+        this.marcasDTO = marcasDTO;
     }
 
     public ClienteDTO getCliente() {
@@ -60,5 +58,11 @@ public class VehiculoDTO {
 
     public void setCliente(ClienteDTO cliente) {
         this.cliente = cliente;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return chapa+" - "+color+" - "+tipovehiculoDTO.getNom_tipvehiculo()+" - "+marcasDTO.getNom_marca()+" - "+cliente.getNombre();
     }
 }

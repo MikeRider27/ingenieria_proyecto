@@ -23,37 +23,49 @@
         android:orientation="vertical"
         android:layout_margin="15dp">
         <EditText
-            android:id="@+id/txt_nom_usuario"
+            android:id="@+id/reid_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Id"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            />
+        <EditText
+            android:id="@+id/nombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Nombre"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/reid_usuario" />
         <EditText
-            android:id="@+id/txt_nick"
+            android:id="@+id/nick"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Nick"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nom_usuario" />
+            app:layout_constraintTop_toBottomOf="@+id/nombre" />
         <EditText
-            android:id="@+id/txt_usu_email"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
             android:hint="Email"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nick" />
+            app:layout_constraintTop_toBottomOf="@+id/nick" />
         <EditText
-            android:id="@+id/txt_usu_clave"
+            android:id="@+id/contrasena"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
             android:hint="Contraseña"
-            app:layout_constraintTop_toBottomOf="@+id/txt_usu_email" />
+            app:layout_constraintTop_toBottomOf="@+id/email"
+            />
+
        </LinearLayout>
 
 
@@ -66,7 +78,7 @@
         android:layout_margin="15dp"
         android:gravity="center">
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnRegistro"
             android:text="Registrar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
