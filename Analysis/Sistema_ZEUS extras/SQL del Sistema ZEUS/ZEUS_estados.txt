@@ -1,0 +1,16 @@
+Estados del Sistema Zeus
+
+------STANDARDT----------
+* 0 = ANU --> Anulado
+* 1 = VIG --> Vigente
+------COMPUESTOS---------
+* 2 = PEN --> Pendiente
+* 3 = APR --> Aprobado
+---------PED-------------
+* 4 = ORD.P --> Orden Parcial
+* 5 = ORD.T --> Orden Total
+---------ORDC------------
+* 6 = COM.P --> Compra Parcial
+* 7 = COM.T --> COmpra Total
+----------COM y REM------
+* 8 = PROV  --> Proveido
