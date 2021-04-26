@@ -1,13 +1,12 @@
-const express = require('express');
+const app = require('./app');
+const { connect } = require('./database');
 
-const app = express();
+async function main() {
+    //Database connection
+    await connect();
+    //Express application
+    await app.listen(4000);
+    console.log('Server on port 4000: Connected');
+}
 
-// middlewares
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
-
-// Routes
-app.use(require('./routes/marca'));
-
-app.listen(3000);
-console.log('Server on port', 3000);
+main();
