@@ -45,7 +45,7 @@
   <table id="TAB10" populated="true" UUID="1cea8e2b-e1dc-48ce-b295-21cd88e4bc87" name="usuario" objectType="TABLE" physicalName="usuario" >
    <remarks></remarks>
    <folder id="FOLTAB101" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL11" populated="true" UUID="0cf69a18-ecd5-44e4-8e1b-c373e8d70ffa" autoIncrement="false" autoIncrementSequenceName="usuario_id_usuario_seq" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL11" populated="true" UUID="0cf69a18-ecd5-44e4-8e1b-c373e8d70ffa" autoIncrement="true" autoIncrementSequenceName="usuario_id_usuario_seq" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL12" populated="true" UUID="45cfa9f4-592c-496b-9f06-cc168f2bb91c" autoIncrement="false" autoIncrementSequenceName="usuario_nick_seq" defaultValue="" name="nick" nullable="0" physicalName="nick" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -57,7 +57,7 @@
     <column id="COL14" populated="true" UUID="d54f809a-dccd-4666-a1f4-1ae62618dd0b" autoIncrement="false" autoIncrementSequenceName="usuario_email_seq" defaultValue="" name="email" nullable="0" physicalName="email" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL15" populated="true" UUID="a7371d00-9055-4504-b915-170d63d80a62" autoIncrement="false" autoIncrementSequenceName="usuario_password_seq" defaultValue="" name="contraseña" nullable="0" physicalName="contraseña" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL15" populated="true" UUID="a7371d00-9055-4504-b915-170d63d80a62" autoIncrement="false" autoIncrementSequenceName="usuario_password_seq" defaultValue="" name="pass" nullable="0" physicalName="pass" precision="200" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -74,10 +74,10 @@
   <table id="TAB18" populated="true" UUID="42bca776-789d-48a1-8afd-80f92706ee90" name="tipo_bahias" objectType="TABLE" physicalName="tipo_bahias" >
    <remarks></remarks>
    <folder id="FOLTAB181" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL19" populated="true" UUID="2349614d-3ab7-44da-9576-c8f7a4d723e6" autoIncrement="false" autoIncrementSequenceName="tipo_bahias_id_tipbahia_seq" defaultValue="" name="id_tipbahia" nullable="0" physicalName="id_tipbahia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL19" populated="true" UUID="2349614d-3ab7-44da-9576-c8f7a4d723e6" autoIncrement="true" autoIncrementSequenceName="tipo_bahias_id_tipbahia_seq" defaultValue="" name="id_tipbahia" nullable="0" physicalName="id_tipbahia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL20" populated="true" UUID="2c242389-1a17-4212-a396-cec79449bc96" autoIncrement="false" autoIncrementSequenceName="tipo_bahias_nom_tipbahia _seq" defaultValue="" name="nom_tipbahia " nullable="0" physicalName="nom_tipbahia " precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL20" populated="true" UUID="2c242389-1a17-4212-a396-cec79449bc96" autoIncrement="false" autoIncrementSequenceName="tipo_bahias_nom_tipbahia _seq" defaultValue="" name="nom_tipbahia " nullable="0" physicalName="nom_tipbahia_" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -94,13 +94,13 @@
   <table id="TAB23" populated="true" UUID="db95fc4a-cbc6-4dbf-8c0e-fa5d552d586e" name="bahias" objectType="TABLE" physicalName="bahias" >
    <remarks></remarks>
    <folder id="FOLTAB231" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL24" populated="true" UUID="aad9f8c1-4e5e-4a53-b809-54d9c0661473" autoIncrement="false" autoIncrementSequenceName="bahias_id_bahia_seq" defaultValue="" name="id_bahia" nullable="0" physicalName="id_bahia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL24" populated="true" UUID="aad9f8c1-4e5e-4a53-b809-54d9c0661473" autoIncrement="true" autoIncrementSequenceName="bahias_id_bahia_seq" defaultValue="" name="id_bahia" nullable="0" physicalName="id_bahia" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL25" populated="true" UUID="db79143c-2b1e-49d5-b12e-fe30acbdea58" autoIncrement="false" autoIncrementSequenceName="bahias_nom_bahia_seq" defaultValue="" name="nom_bahia" nullable="0" physicalName="nom_bahia" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL26" populated="true" UUID="aed65124-035b-4c1d-858b-e5672005801c" autoIncrement="false" autoIncrementSequenceName="tipo_bahias_id_tipbahia_seq" defaultValue="" name="id_tipbahia" nullable="0" physicalName="id_tipbahia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL26" populated="true" UUID="aed65124-035b-4c1d-858b-e5672005801c" autoIncrement="false" autoIncrementSequenceName="tipo_bahias_id_tipbahia_seq_1" defaultValue="" name="id_tipbahia" nullable="0" physicalName="id_tipbahia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL27" populated="true" UUID="be99959d-d50b-4612-9531-73dbd1220956" autoIncrement="false" autoIncrementSequenceName="zona_id_zona_seq" defaultValue="" name="id_zona" nullable="0" physicalName="id_zona" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -123,7 +123,7 @@
   <table id="TAB31" populated="true" UUID="e986f49a-f9a9-41f6-bbfc-6a002ed5f855" name="zona" objectType="TABLE" physicalName="zona" >
    <remarks></remarks>
    <folder id="FOLTAB311" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL32" populated="true" UUID="2a35a783-d830-43de-b110-1af612a2c794" autoIncrement="false" autoIncrementSequenceName="zona_id_zona_seq" defaultValue="" name="id_zona" nullable="0" physicalName="id_zona" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL32" populated="true" UUID="2a35a783-d830-43de-b110-1af612a2c794" autoIncrement="true" autoIncrementSequenceName="zona_id_zona_seq_1" defaultValue="" name="id_zona" nullable="0" physicalName="id_zona" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL33" populated="true" UUID="2f422d18-e6cc-4541-9680-c249e1df1046" autoIncrement="false" autoIncrementSequenceName="zona_nom_zona_seq" defaultValue="" name="nom_zona" nullable="0" physicalName="nom_zona" precision="60" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -143,16 +143,16 @@
   <table id="TAB36" populated="true" UUID="5543b0b5-6519-4a1d-b89a-7357ea3ab93b" name="tipo_vehiculo" objectType="TABLE" physicalName="tipo_vehiculo" >
    <remarks></remarks>
    <folder id="FOLTAB361" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL37" populated="true" UUID="aeeaed5d-f9d5-4ea0-b370-bd2229ff4707" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_id_tipvehiculo_seq" defaultValue="" name="id_tipvehiculo" nullable="0" physicalName="id_tipvehiculo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL37" populated="true" UUID="aeeaed5d-f9d5-4ea0-b370-bd2229ff4707" autoIncrement="true" autoIncrementSequenceName="tipo_vehiculo_id_tipvehiculo_seq_1" defaultValue="" name="id_tipvehiculo" nullable="0" physicalName="id_tipvehiculo" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL38" populated="true" UUID="36c0360b-01e0-4a20-8564-49d9c66d3a8a" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_nombre_seq" defaultValue="" name="nom_tipvehiculo" nullable="0" physicalName="nom_tipvehiculo" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL39" populated="true" UUID="d509094d-053e-4dd7-9610-9979f0a31ed9" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_tarifa/hora_seq" defaultValue="" name="tarifa/hora" nullable="0" physicalName="tarifa/hora" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL39" populated="true" UUID="d509094d-053e-4dd7-9610-9979f0a31ed9" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_tarifa/hora_seq" defaultValue="" name="tarifa_hora" nullable="0" physicalName="tarifa_hora" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL40" populated="true" UUID="18f681f6-a3ef-46b0-85f6-4daccc0d86ac" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_tarifa/dia_seq" defaultValue="" name="tarifa/dia" nullable="0" physicalName="tarifa/dia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL40" populated="true" UUID="18f681f6-a3ef-46b0-85f6-4daccc0d86ac" autoIncrement="false" autoIncrementSequenceName="tipo_vehiculo_tarifa/dia_seq" defaultValue="" name="tarifa_dia" nullable="0" physicalName="tarifa_dia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
@@ -169,7 +169,7 @@
   <table id="TAB43" populated="true" UUID="9e2e3164-9026-4328-9828-5713b1621f0b" name="marca" objectType="TABLE" physicalName="marca" >
    <remarks></remarks>
    <folder id="FOLTAB431" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL44" populated="true" UUID="865a04e4-fc84-4ede-9a92-9b2b6277645a" autoIncrement="false" autoIncrementSequenceName="marca_id_marca_seq" defaultValue="" name="id_marca" nullable="0" physicalName="id_marca" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL44" populated="true" UUID="865a04e4-fc84-4ede-9a92-9b2b6277645a" autoIncrement="true" autoIncrementSequenceName="marca_id_marca_seq_1" defaultValue="" name="id_marca" nullable="0" physicalName="id_marca" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL45" populated="true" UUID="e50afda6-aa35-47c3-b6e4-bb43db5d5076" autoIncrement="false" autoIncrementSequenceName="marca_descripcion_seq" defaultValue="" name="nom_marca" nullable="0" physicalName="nom_marca" precision="30" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -189,10 +189,10 @@
   <table id="TAB48" populated="true" UUID="817bae0a-4d41-455a-a6bc-d9b5f5bc7af0" name="entrada_salida" objectType="TABLE" physicalName="entrada_salida" >
    <remarks></remarks>
    <folder id="FOLTAB481" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL49" populated="true" UUID="8497f395-e757-484b-8ab7-69f833dd385c" autoIncrement="false" autoIncrementSequenceName="entrada_salida_id_entrada_salida_seq" defaultValue="" name="id_entrada_salida" nullable="0" physicalName="id_entrada_salida" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL49" populated="true" UUID="8497f395-e757-484b-8ab7-69f833dd385c" autoIncrement="true" autoIncrementSequenceName="entrada_salida_id_entrada_salida_seq" defaultValue="" name="id_entrada_salida" nullable="0" physicalName="id_entrada_salida" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL50" populated="true" UUID="fdadd58a-24fb-4768-bd96-d06f873f4fab" autoIncrement="false" autoIncrementSequenceName="vehiculo_chapa_seq" defaultValue="" name="chapa" nullable="0" physicalName="chapa" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL50" populated="true" UUID="fdadd58a-24fb-4768-bd96-d06f873f4fab" autoIncrement="false" autoIncrementSequenceName="vehiculo_chapa_seq_1" defaultValue="" name="chapa" nullable="0" physicalName="chapa" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL51" populated="true" UUID="9a581197-9637-413c-bee4-4b1e9a2dc7ec" autoIncrement="false" autoIncrementSequenceName="entrada_salida_fecha_entrada_seq" defaultValue="" name="fecha_entrada" nullable="0" physicalName="fecha_entrada" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
@@ -207,7 +207,7 @@
     <column id="COL54" populated="true" UUID="a8adb16b-8999-41fe-9856-237c05f94f7a" autoIncrement="false" autoIncrementSequenceName="entrada_salida_hora_salida_seq" defaultValue="" name="hora_salida" nullable="0" physicalName="hora_salida" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="92" userDefinedTypeUUID="10d6960f-169d-47c2-860a-37341342b1d5" >
      <remarks></remarks>
     </column>
-    <column id="COL55" populated="true" UUID="16119f24-9772-45ed-8e86-f864a1591ccb" autoIncrement="false" autoIncrementSequenceName="bahias_id_bahia_seq" defaultValue="" name="id_bahia" nullable="0" physicalName="id_bahia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL55" populated="true" UUID="16119f24-9772-45ed-8e86-f864a1591ccb" autoIncrement="false" autoIncrementSequenceName="bahias_id_bahia_seq_1" defaultValue="" name="id_bahia" nullable="0" physicalName="id_bahia" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL56" populated="true" UUID="749426b5-cdda-4093-9398-65331da1cede" autoIncrement="false" autoIncrementSequenceName="entrada_salida_tiempo_total_seq" defaultValue="" name="tiempo_total" nullable="0" physicalName="tiempo_total" precision="10" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -219,7 +219,7 @@
     <column id="COL58" populated="true" UUID="51c69604-d13b-41b2-ace0-d083b2293260" autoIncrement="false" autoIncrementSequenceName="entrada_salida_estado_seq" defaultValue="" name="estado" nullable="0" physicalName="estado" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="16" userDefinedTypeUUID="a26374aa-3026-4bb8-b564-eb2e186dfa5d" >
      <remarks></remarks>
     </column>
-    <column id="COL59" populated="true" UUID="a329f9a0-a31c-4f63-b8cb-7c6edf1f2d3d" autoIncrement="false" autoIncrementSequenceName="usuario_id_usuario_seq" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL59" populated="true" UUID="a329f9a0-a31c-4f63-b8cb-7c6edf1f2d3d" autoIncrement="false" autoIncrementSequenceName="usuario_id_usuario_seq_1" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     </folder>
@@ -236,7 +236,7 @@
   <table id="TAB62" populated="true" UUID="4b0a7b4d-f675-4d24-9eb1-94c91933f650" name="cliente" objectType="TABLE" physicalName="cliente" >
    <remarks></remarks>
    <folder id="FOLTAB621" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL63" populated="true" UUID="df9909cf-c190-4d7d-9aba-8d642d8b5786" autoIncrement="false" autoIncrementSequenceName="persona_id_persona_seq" defaultValue="" name="id_cliente" nullable="0" physicalName="id_cliente" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL63" populated="true" UUID="df9909cf-c190-4d7d-9aba-8d642d8b5786" autoIncrement="true" autoIncrementSequenceName="persona_id_persona_seq_1" defaultValue="" name="id_cliente" nullable="0" physicalName="id_cliente" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL64" populated="true" UUID="cd22602c-b1ac-460a-87f0-3150d336f33c" autoIncrement="false" autoIncrementSequenceName="cliente_cedula_seq" defaultValue="" name="cedula" nullable="0" physicalName="cedula" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -260,7 +260,7 @@
     <folder id="FOLTAB622" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB624" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX69" populated="true" UUID="cc92c8e7-d07b-4f26-b584-9700e6ec234e" clustered="false" name="cliente_pk" physicalName="persona_pk" primaryKeyIndex="true" unique="false" >
+    <index id="IDX69" populated="true" UUID="cc92c8e7-d07b-4f26-b584-9700e6ec234e" clustered="false" name="cliente_pk" physicalName="cliente_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC70" populated="true" UUID="67fc7b4d-a8d9-402d-b3f0-90999f2849ed" ascendingOrDescending="UNSPECIFIED" column-ref="COL63" name="id_cliente" physicalName="id_cliente" />
     </index>
    </folder>
@@ -268,19 +268,19 @@
   <table id="TAB71" populated="true" UUID="fd378995-692f-4008-9355-acf67da7cf51" name="caja_cobros" objectType="TABLE" physicalName="caja_cobros" >
    <remarks></remarks>
    <folder id="FOLTAB711" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL72" populated="true" UUID="6a72071f-3cd8-46d4-9e54-c632654a7c54" autoIncrement="false" autoIncrementSequenceName="caja_cobros_id_caja_seq" defaultValue="" name="id_caja" nullable="0" physicalName="id_caja" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL72" populated="true" UUID="6a72071f-3cd8-46d4-9e54-c632654a7c54" autoIncrement="true" autoIncrementSequenceName="caja_cobros_id_caja_seq" defaultValue="" name="id_caja" nullable="0" physicalName="id_caja" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL73" populated="true" UUID="f588a633-de0b-49d6-a893-227156a40066" autoIncrement="false" autoIncrementSequenceName="usuario_id_usuario_seq" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL73" populated="true" UUID="f588a633-de0b-49d6-a893-227156a40066" autoIncrement="false" autoIncrementSequenceName="usuario_id_usuario_seq_2" defaultValue="" name="id_usuario" nullable="0" physicalName="id_usuario" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL74" populated="true" UUID="1804d370-3c63-441a-9de1-1596a68ff859" autoIncrement="false" autoIncrementSequenceName="entrada_salida_id_entrada_salida_seq" defaultValue="" name="id_entrada_salida" nullable="0" physicalName="id_entrada_salida" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL74" populated="true" UUID="1804d370-3c63-441a-9de1-1596a68ff859" autoIncrement="false" autoIncrementSequenceName="entrada_salida_id_entrada_salida_seq_1" defaultValue="" name="id_entrada_salida" nullable="0" physicalName="id_entrada_salida" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL75" populated="true" UUID="8bb24066-cef7-4385-a584-03a32db392d1" autoIncrement="false" autoIncrementSequenceName="caja_cobros_monto_seq" defaultValue="" name="monto" nullable="0" physicalName="monto" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2" userDefinedTypeUUID="115245ce-612c-4d6a-b559-6dd903dd959a" >
      <remarks></remarks>
     </column>
-    <column id="COL76" populated="true" UUID="d4996805-4c0c-43f3-9792-3980d5723731" autoIncrement="false" autoIncrementSequenceName="persona_id_persona_seq" defaultValue="" name="id_cliente" nullable="0" physicalName="id_cliente" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL76" populated="true" UUID="d4996805-4c0c-43f3-9792-3980d5723731" autoIncrement="false" autoIncrementSequenceName="persona_id_persona_seq_2" defaultValue="" name="id_cliente" nullable="0" physicalName="id_cliente" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL77" populated="true" UUID="00cee9a4-d38a-45ec-a1ec-2be52a57d06b" autoIncrement="false" autoIncrementSequenceName="caja_cobros_tipo_pago_seq" defaultValue="" name="tipo_pago" nullable="0" physicalName="tipo_pago" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -336,7 +336,7 @@
    </relationship>
   </relationships>
  </target-database>
- <ddl-generator type="ca.sqlpower.architect.ddl.GenericDDLGenerator" allow-connection="true"> </ddl-generator>
+ <ddl-generator type="ca.sqlpower.architect.ddl.PostgresDDLGenerator" allow-connection="false" target-schema="public"> </ddl-generator>
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="0.8408964152537144" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">

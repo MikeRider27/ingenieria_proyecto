@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.parkingapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name="app.utic.parkingapp.Marcas3Activity"></activity>
+        <activity android:name="app.utic.parkingapp.Marcas2Activity" />
+        <activity android:name="app.utic.parkingapp.AcercaActivity" />
+        <activity android:name="app.utic.parkingapp.PresupuestoActivity" />
+        <activity android:name="app.utic.parkingapp.ClientesActivity" />
+        <activity android:name="app.utic.parkingapp.EmpleadosActivity" />
+        <activity android:name="app.utic.parkingapp.ProductosActivity" />
+        <activity android:name="app.utic.parkingapp.MarcasActivity" />
+        <activity android:name="app.utic.parkingapp.ZonaActivity" />
+        <activity android:name="app.utic.parkingapp.TipobahiaActivity" />
+        <activity android:name="app.utic.parkingapp.TipovehiculoActivity" />
+        <activity
+            android:name="app.utic.parkingapp.MainActivity"
+            android:label="Sist.Corporativos 2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="app.utic.parkingapp.LoginActivity"> <!-- Actividad a Iniciar -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

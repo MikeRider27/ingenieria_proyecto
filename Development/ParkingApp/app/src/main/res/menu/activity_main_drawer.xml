@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/usuario"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Usuarios" />
+        <item
+            android:id="@+id/vehiculo"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Vehiculos" />
+        <item
+            android:id="@+id/clientes"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Clientes" />
+        <item
+            android:id="@+id/bahia"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Bahia" />
+        <item
+            android:id="@+id/tipobahia"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Tipo Bahia" />
+        <item
+            android:id="@+id/zona"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Zona" />
+        <item
+            android:id="@+id/marcas"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Marca" />
+        <item
+            android:id="@+id/tipoveh"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Tipo Vehiculo" />
+    </group>
+
+    <item android:title="Movimientos">
+        <menu>
+            <item
+                android:id="@+id/entrada"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Entrada y Salida de Vehiculos" />
+            <item
+                android:id="@+id/cobros"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Caja de Cobros" />
+
+        </menu>
+    </item>
+
+    <item android:title="Sesion">
+        <menu>
+            <item
+                android:id="@+id/acerca"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Acerca de..." />
+
+            <item
+                android:id="@+id/sesion"
+                android:icon="@drawable/ic_menu_slideshow"
+                android:title="Cerrar Sesion " />
+
+        </menu>
+    </item>
+
+
+</menu>
