@@ -44,7 +44,11 @@
             <item
                 android:id="@+id/entrada"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Entrada y Salida de Vehiculos" />
+                android:title="Entrada de Vehiculos" />
+            <item
+                android:id="@+id/salida"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Salida de Vehiculos" />
             <item
                 android:id="@+id/cobros"
                 android:icon="@drawable/ic_menu_manage"

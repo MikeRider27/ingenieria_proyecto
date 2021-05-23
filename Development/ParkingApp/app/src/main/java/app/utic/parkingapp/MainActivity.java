@@ -103,6 +103,11 @@ public class MainActivity extends AppCompatActivity
             Intent siguiente = new Intent(this, ZonaActivity.class);
             startActivity(siguiente);
 
+        }else if (id == R.id.vehiculo) {
+
+            Intent siguiente = new Intent(this, VehiculoActivity.class);
+            startActivity(siguiente);
+
         }else if (id == R.id.tipobahia) {
 
             Intent siguiente = new Intent(this, TipobahiaActivity.class);
@@ -119,11 +124,20 @@ public class MainActivity extends AppCompatActivity
             startActivity(siguiente);
 
         } else if (id == R.id.entrada) {
-            Intent siguiente = new Intent(this, PresupuestoActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putString("usu", usuario);
-            siguiente.putExtras(bundle);
+
+            Intent siguiente = new Intent(this, EntradaActivity.class);
             startActivity(siguiente);
+
+        } else if (id == R.id.salida) {
+
+            Intent siguiente = new Intent(this, SalidaActivity.class);
+            startActivity(siguiente);
+
+        } else if (id == R.id.cobros) {
+
+            Intent siguiente = new Intent(this, CobrosActivity.class);
+            startActivity(siguiente);
+
         } else if (id == R.id.acerca) {
 
             Intent siguiente = new Intent(this, AcercaActivity.class);
