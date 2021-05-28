@@ -18,7 +18,7 @@
         <activity android:name="app.utic.appventas.AcercaActivity" />
         <activity android:name="app.utic.appventas.PresupuestoActivity" />
         <activity android:name="app.utic.appventas.ClientesActivity" />
-        <activity android:name="app.utic.appventas.EmpleadosActivity" />
+        <activity android:name="app.utic.appventas.UsuarioActivity" />
         <activity android:name="app.utic.appventas.VehiculoActivity" />
         <activity android:name="app.utic.appventas.BahiaActivity" />
         <activity

@@ -3,7 +3,7 @@ const HOST = "localhost";
 const DB_PORT ="5432";
 const DATABASE = "parking";
 const DB_USER = "postgres";
-const DB_PASSWORD = "123";
+const DB_PASSWORD = "dgtic123";
 
 function getConnection($host = HOST, $dbport = DB_PORT, $database = DATABASE, $dbuser = DB_USER, $dbpassword = DB_PASSWORD){
 	$dbconn = null;

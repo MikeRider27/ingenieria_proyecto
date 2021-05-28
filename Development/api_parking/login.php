@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('core/connection.php');
 $dbconn = getConnection();
 
@@ -10,7 +9,7 @@ $dbconn = getConnection();
 // Check if the form was sent and the action is LOGIN
 if(isset($_GET['accion']) AND $_GET['accion'] == "ingresar")
 {
-	$nick = $_GET['nick'];
+	$nick = mb_strtoupper(trim($_GET['nick']), 'UTF-8');
 	$pass = sha1($_GET['pass']);  
 
 	// prepare statement for search user

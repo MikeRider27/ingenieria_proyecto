@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../core/connection.php');
 $dbconn = getConnection();
 

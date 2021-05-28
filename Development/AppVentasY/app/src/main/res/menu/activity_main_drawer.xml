@@ -5,9 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/empleados"
+            android:id="@+id/usuario"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Empleados" />
+            android:title="Usuarios" />
         <item
             android:id="@+id/marcas"
             android:icon="@drawable/ic_menu_gallery"
@@ -41,9 +41,17 @@
     <item android:title="Ventas">
         <menu>
             <item
-                android:id="@+id/presupuesto"
+                android:id="@+id/entrada"
                 android:icon="@drawable/ic_menu_manage"
-                android:title="Presupuesto" />
+                android:title="Entrada de Vehiculo" />
+            <item
+                android:id="@+id/salida"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Entrada de Vehiculo" />
+            <item
+                android:id="@+id/cobro"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Caja de Cobros" />
 
         </menu>
     </item>

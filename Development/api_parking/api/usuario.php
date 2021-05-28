@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../core/connection.php');
 $dbconn = getConnection();
 
@@ -37,7 +36,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
             $message = $result ? "Se registró correctamente el usuario con el id = " . $id_usuario :
                 "Ocurrio un error intentado resolver la solicitud";
             $status = $result ? "success" : "error";
-            print json_encode(array("status" => $status, "message" => $message, "id_usuario" => $id_usuario));
+            print json_encode(array("status" => $status, "message" => $message));
         }
     } catch (Exception $e) {
         $result = FALSE;
@@ -64,7 +63,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $stmt->bindValue(':email', $email);
     $stmt->bindValue(':pass', $pass);
     $result = $stmt->execute();
-    $message = $result ? "Registro del usuario modificado exitosamente!" : "Ocurrio un error intentado resolver la solicitud, por favor complete todos los campos o recargue de vuelta la pagina";
+    $message = $result ? "Registro del usuario modificado exitosamente!" : 
+        "Ocurrio un error intentado resolver la solicitud";
     $status = $result ? "success" : "error";
     print json_encode(array("status" => $status, "message" => $message));
 } else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "delete") {
@@ -77,7 +77,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
         $stmt->bindValue(':id_usuario', $id_usuario);
     }
     $result = $stmt->execute();
-    $message = $result ? "Registro del usuario borrado exitosamente!" : "Ocurrio un error intentado resolver la solicitud, por favor complete todos los campos o recargue de vuelta la pagina";
+    $message = $result ? "Registro del usuario borrado exitosamente!" : 
+    "Ocurrio un error intentado resolver la solicitud";
     $status = $result ? "success" : "error";
     print json_encode(array("status" => $status, "message" => $message));
 } else if (isset($_GET['accion']) and $_GET['accion'] == "select") {
@@ -112,7 +113,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
                 "id_usuario" => $usuario->id_usuario,
                 "nick" => $usuario->nick,
                 "nombre" => $usuario->nombre,
-                "email" => $usuario->email
+                "email" => $usuario->email,
+                "pass" => $usuario->pass
             );
             $a = 1;
         }

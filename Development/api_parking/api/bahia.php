@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../core/connection.php');
 $dbconn = getConnection();
 
@@ -11,7 +10,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $nom_bahia = $_REQUEST['nom_bahia'];
     $tipo_bahia = $_REQUEST['tipo_bahia'];
     $zona = $_REQUEST['zona'];
-    $estado_bahia = 'LIBRE';
+    $estado_bahia = $_REQUEST['estado_bahia'];
 
     try {
         $stmt2 = $dbconn->prepare("SELECT * FROM bahias WHERE nom_bahia = :nom_bahia");
@@ -37,7 +36,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
             $message = $result ? "Se registró correctamente la bahias con el id = " . $id_bahia :
                 "Ocurrio un error intentado resolver la solicitud";
             $status = $result ? "success" : "error";
-            print json_encode(array("status" => $status, "message" => $message, "id_bahia" => $id_bahia));
+            print json_encode(array("status" => $status, "message" => $message));
         }
     } catch (Exception $e) {
         $result = FALSE;
@@ -48,7 +47,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $result = 0;
     $id_bahia = $_REQUEST['id_bahia'];
     $nom_bahia = $_REQUEST['nom_bahia'];
-    $tipo_bahia = $_REQUEST['id_tipbahia'];
+    $tipo_bahia = $_REQUEST['tipo_bahia'];
     $zona = $_REQUEST['zona'];
     // $estado_bahia = 'OCUPADO';
     if (!empty($id_bahia)) {
@@ -62,7 +61,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $stmt->bindValue(':id_tipbahia', $tipo_bahia);
     $stmt->bindValue(':id_zona', $zona);
     $result = $stmt->execute();
-    $message = $result ? "Registro de la bahias modificado exitosamente!" : "Ocurrio un error intentado resolver la solicitud, por favor complete todos los campos o recargue de vuelta la pagina";
+    $message = $result ? "Registro de la bahias modificado exitosamente!" :
+    "Ocurrio un error intentado resolver la solicitud";
     $status = $result ? "success" : "error";
     print json_encode(array("status" => $status, "message" => $message));
 } else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "delete") {
@@ -78,7 +78,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $message = $result ? "Registro de la bahias borrado exitosamente!" : "Ocurrio un error intentado resolver la solicitud, por favor complete todos los campos o recargue de vuelta la pagina";
     $status = $result ? "success" : "error";
     print json_encode(array("status" => $status, "message" => $message));
-} else if (isset($_GET['accion']) and $_GET['accion'] == "select") {
+} else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "select") {
     // funciona el select para la grilla
     $stmt = $dbconn->prepare('SELECT  b.id_bahia, b.nom_bahia, b.id_tipbahia, tb.nom_tipbahia, b.id_zona, z.nom_zona
                             from bahias b 
@@ -90,12 +90,10 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     while ($bahias = $stmt->fetch(PDO::FETCH_OBJ)) {
         $data[] = array(
             "id_bahia" => $bahias->id_bahia,
-            "nom_bahia" => $bahias->nom_bahia,
-            "id_tipbahia" => $bahias->id_tipbahia,
-            "nom_tipbahia" => $bahias->nom_tipbahia,
-            "id_zona" => $bahias->id_zona,
-            "nom_zona" => $bahias->nom_zona,
-            "estado_bahia" => $bahias->estado_bahia
+            "nom_bahia" => $bahias->nom_bahia,           
+            "nom_tipbahia" => $bahias->nom_tipbahia,          
+            "nom_zona" => $bahias->nom_zona
+          
         );
     }
     echo json_encode($data);
@@ -103,7 +101,10 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     //terminado
     $id_bahia = $_REQUEST['id_bahia'];
 
-    $sql_search = "SELECT * from bahias where id_bahia=:id_bahia";
+    $sql_search = "SELECT b.id_bahia, b.nom_bahia, b.id_tipbahia, tb.nom_tipbahia, b.id_zona, z.nom_zona
+    from bahias b 
+    inner join tipo_bahias tb on b.id_tipbahia = tb.id_tipbahia 
+    inner join zona z  on b.id_zona = z.id_zona where b.id_bahia=:id_bahia";
 
     $stmt = $dbconn->prepare($sql_search);
     //poner numero de cantidad de campos por tabla diferente cantidad 
@@ -117,8 +118,7 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
                 "id_bahia" => $bahias->id_bahia,
                 "nom_bahia" => $bahias->nom_bahia,
                 "id_tipbahia" => $bahias->id_tipbahia,
-                "id_zona" => $bahias->id_zona,
-                "estado_bahia" => $bahias->estado_bahia
+                "id_zona" => $bahias->id_zona
             );
             $a = 1;
         }

@@ -141,25 +141,28 @@ public class VehiculoActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
 
         } else {
-            String URL = ENLACE+"insert.php?marca="+et_codmarca.getText().toString();
+            String URL = ENLACE+"vehiculo.php?accion=insertmarca="+et_codmarca.getText().toString();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         JSONObject parentObject = new JSONObject(response);
-                        if (parentObject.getString("CREATE").equals("OK")){
-                            String cod = parentObject.getString("ID");
+                        if (parentObject.getString("status").equals("success")){
+                            String message = parentObject.getString("message");
 
                             et_chapa.setText("");
                             et_codmarca.setText("");
                             et_descrimarca.setText("");
+                            et_codtipov.setText("");
+                            et_descritipov.setText("");
+                            et_codcliente.setText("");
+                            et_nombre.setText("");
 
-                            Toast.makeText(getApplicationContext(), "Registro numero "+cod+" insertado", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
                             cargaLista();
 
-                        } else if (parentObject.getString("CREATE").equals("EXISTE")){
-                            Toast.makeText(getApplicationContext(), "El Registro ya existe!!", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
+                            String message = parentObject.getString("message");
                             Toast.makeText(getApplicationContext(), "Probable registro existente", Toast.LENGTH_LONG).show();
                         }
                     } catch (JSONException e) {
@@ -199,6 +202,10 @@ public class VehiculoActivity extends AppCompatActivity {
                                     et_chapa.setText("");
                                     et_codmarca.setText("");
                                     et_descrimarca.setText("");
+                                    et_codtipov.setText("");
+                                    et_descritipov.setText("");
+                                    et_codcliente.setText("");
+                                    et_nombre.setText("");
 
                                     Toast.makeText(VehiculoActivity.this, "Registro eliminado con exito!!!", Toast.LENGTH_SHORT).show();
                                     cargaLista();
@@ -252,6 +259,10 @@ public class VehiculoActivity extends AppCompatActivity {
                         et_chapa.setText("");
                         et_codmarca.setText("");
                         et_descrimarca.setText("");
+                        et_codtipov.setText("");
+                        et_descritipov.setText("");
+                        et_codcliente.setText("");
+                        et_nombre.setText("");
 
                         Toast.makeText(getApplicationContext(), "Registro modificado con exito!!!", Toast.LENGTH_SHORT).show();
                         cargaLista();
@@ -311,7 +322,7 @@ public class VehiculoActivity extends AppCompatActivity {
 
     private void cargaLista() {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(VehiculoActivity.this,R.layout.support_simple_spinner_dropdown_item);
-        String URL=ENLACE+"select.php";
+        String URL=ENLACE+"vehiculo.php?accion=select";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -320,15 +331,13 @@ public class VehiculoActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        String codigo = jsonObject.getString("cod");
-                        String descripcion = jsonObject.getString("des");
-                        String marca = jsonObject.getString("mar");
-                        String marcod = jsonObject.getString("marcod");
-                        String costo= jsonObject.getString("cos");
-                        String precio = jsonObject.getString("pre");
-                        //et_codmarca.setText(marcod);
+                        String codigo = jsonObject.getString("chapa");
+                        String tipo_vehiculo = jsonObject.getString("nom_tipvehiculo");
+                        String marca = jsonObject.getString("nom_marca");
+                        String cliente = jsonObject.getString("nombres");
 
-                        adapter.add(codigo+" - "+descripcion+" - "+marca+" - "+costo+" - "+precio);
+
+                        adapter.add(codigo+" - "+tipo_vehiculo+" - "+marca+" - "+cliente);
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -349,34 +358,32 @@ public class VehiculoActivity extends AppCompatActivity {
     }
 
     public void Recuperar() {
-        String URL = ENLACE+"search.php?codigo="+et_chapa.getText().toString();
+        String URL = ENLACE+"vehiculo.php?accion=search&chapa="+et_chapa.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {
                 try {
                     JSONObject parentObject = new JSONObject(response);
-                    if (parentObject.getString("CREATE").equals("OK")){
+                    if (parentObject.getString("status").equals("success")){
 
-                        String descripcion = parentObject.getString("des");
-                        String marca = parentObject.getString("mar");
-                        int costo = parentObject.getInt("cos");
-                        int precio = parentObject.getInt("pre");
+                        String tipo_vehiculo = parentObject.getString("id_tipvehiculo");
+                        String marca = parentObject.getString("id_marca");
+                        String cliente = parentObject.getString("id_cliente");
 
                         et_codmarca.setText(marca);
+                        et_codtipov.setText(tipo_vehiculo);
+                        et_codcliente.setText(cliente);
 
-
-                        //txtDescripcion.setText("");
-                        //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
                         RecuperarMarca();
+                        RecuperarTipoV();
+                        RecuperarCliente();
                         modificar.setEnabled(true);
                         eliminar.setEnabled(true);
                         registrar.setEnabled(false);
                         // et_descrimarca.setSelection(et_descrimarca.getText().toString().length());
 
-                    } else if (parentObject.getString("CREATE").equals("EXISTE")){
-                        Toast.makeText(getApplicationContext(), "El Registro ya existe!!", Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
                         Toast.makeText(getApplicationContext(), "No Existe1", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {

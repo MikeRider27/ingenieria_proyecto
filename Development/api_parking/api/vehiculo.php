@@ -1,5 +1,4 @@
 <?php
-session_start();
 include('../core/connection.php');
 $dbconn = getConnection();
 
@@ -78,37 +77,45 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     print json_encode(array("status" => $status, "message" => $message));
 } else if (isset($_GET['accion']) and $_GET['accion'] == "select") {
     // funciona el select para la grilla
-    $stmt = $dbconn->prepare('SELECT * FROM vehiculo ORDER BY chapa ASC');
+    $stmt = $dbconn->prepare("SELECT v.chapa, v.id_tipvehiculo, t.nom_tipvehiculo, 
+    v.id_marca, m.nom_marca, v.id_cliente, (c.cedula || ' / ' || c.nombre) AS nombres  
+    FROM vehiculo v inner join tipo_vehiculo t ON v.id_tipvehiculo = t.id_tipvehiculo
+    inner join marca m ON v.id_marca = m.id_marca
+    inner join cliente c ON v.id_cliente = c.id_cliente ORDER BY v.chapa ASC");
     $stmt->execute();
     $data = array();
     while ($vehiculo = $stmt->fetch(PDO::FETCH_OBJ)) {
         $data[] = array(
             "chapa" => $vehiculo->chapa,
             "nom_tipvehiculo" => $vehiculo->nom_tipvehiculo,
-            "tarifa_hora" => $vehiculo->tarifa_hora,
-            "tarifa_dia" => $vehiculo->tarifa_dia
+            "nom_marca" => $vehiculo->nom_marca,
+            "nombres" => $vehiculo->nombres
         );
     }
     echo json_encode($data);
 } else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "search") {
     //terminado
-    $id_tipvehiculo = $_REQUEST['id_tipvehiculo'];
+    $chapa = $_REQUEST['chapa'];
 
-    $sql_search = "SELECT * from tipo_vehiculo where id_tipvehiculo=:id_tipvehiculo";
+    $sql_search = "SELECT v.chapa, v.id_tipvehiculo, t.nom_tipvehiculo, 
+    v.id_marca, m.nom_marca, v.id_cliente, (c.cedula || ' / ' || c.nombre) AS nombres  
+    FROM vehiculo v inner join tipo_vehiculo t ON v.id_tipvehiculo = t.id_tipvehiculo
+    inner join marca m ON v.id_marca = m.id_marca
+    inner join cliente c ON v.id_cliente = c.id_cliente where v.chapa:chapa";
 
     $stmt = $dbconn->prepare($sql_search);
     //poner numero de cantidad de campos por tabla diferente cantidad 
-    $stmt->bindParam(':id_tipvehiculo', $id_tipvehiculo);
+    $stmt->bindParam(':chapa', $chapa);
 
     if ($stmt->execute()) {
         $a = 0;
-        while ($tipo_vehiculo = $stmt->fetch(PDO::FETCH_OBJ)) {
+        while ($vehiculo = $stmt->fetch(PDO::FETCH_OBJ)) {
             $datos = array(
                 "status" => "success",
-                "id_tipvehiculo" => $tipo_vehiculo->id_tipvehiculo,
-                "nom_tipvehiculo" => $tipo_vehiculo->nom_tipvehiculo,
-                "tarifa_hora" => $tipo_vehiculo->tarifa_hora,
-                "tarifa_dia" => $tipo_vehiculo->tarifa_dia
+                "chapa" => $vehiculo->chapa,
+                "id_tipvehiculo" => $vehiculo->id_tipvehiculo,
+                "id_marca" => $vehiculo->id_marca,
+                "id_cliente" => $vehiculo->id_cliente
             );
             $a = 1;
         }

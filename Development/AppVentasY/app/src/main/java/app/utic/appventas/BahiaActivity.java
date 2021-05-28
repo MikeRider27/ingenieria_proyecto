@@ -126,14 +126,13 @@ public class BahiaActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
             et_descripcion.requestFocus();
         } else {
-            String URL = ENLACE+"bahia.php?accion=insert&nom_bahia="+et_descripcion.getText().toString()+"&tipo_bahia="+et_codtipob.getText().toString()+"&zona="+et_codzona.getText().toString();
+            String URL = ENLACE+"bahia.php?accion=insert&nom_bahia="+et_descripcion.getText().toString()+"&tipo_bahia="+et_codtipob.getText().toString()+"&zona="+et_codzona.getText().toString()+"&estado_bahia=LIBRE";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         JSONObject parentObject = new JSONObject(response);
                         if (parentObject.getString("status").equals("success")){
-                            String cod = parentObject.getString("id_bahia");
                             String message = parentObject.getString("message");
                             et_descripcion.setText("");
                             et_codigo.setText("");
@@ -229,7 +228,10 @@ public class BahiaActivity extends AppCompatActivity {
             et_descripcion.requestFocus();
         }  else {
 
-        final String URL = ENLACE+"bahia.php?id_bahia="+et_codigo.getText().toString()+"&nom_bahia="+et_descripcion.getText().toString()+"&tipo_bahia="+et_codtipob.getText().toString()+"&zona="+et_codzona.getText().toString();
+        final String URL = ENLACE+"bahia.php?accion=update&id_bahia="+et_codigo.getText().toString()+
+                "&nom_bahia="+et_descripcion.getText().toString()+
+                "&tipo_bahia="+et_codtipob.getText().toString()+
+                "&zona="+et_codzona.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -305,9 +307,7 @@ public class BahiaActivity extends AppCompatActivity {
                         jsonObject = response.getJSONObject(i);
                         String codigo = jsonObject.getString("id_bahia");
                         String descripcion = jsonObject.getString("nom_bahia");
-                        String tipo_bahia = jsonObject.getString("id_tipbahia");
                         String tipo_bahiades = jsonObject.getString("nom_tipbahia");
-                        String zona= jsonObject.getString("id_zona");
                         String zonades = jsonObject.getString("nom_zona");
                         //et_codmarca.setText(marcod);
 
@@ -332,7 +332,7 @@ public class BahiaActivity extends AppCompatActivity {
     }
 
     public void Recuperar() {
-        String URL = ENLACE+"bahia.php?accion=search&id_bahia"+et_codigo.getText().toString();
+        String URL = ENLACE+"bahia.php?accion=search&id_bahia="+et_codigo.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
@@ -351,7 +351,7 @@ public class BahiaActivity extends AppCompatActivity {
 
                         //txtDescripcion.setText("");
                         //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
-                        RecuperarTipoB();
+                       RecuperarTipoB();
                         RecuperarZona();
                         modificar.setEnabled(true);
                         eliminar.setEnabled(true);

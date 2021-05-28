@@ -87,8 +87,8 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.empleados) {
-            Intent siguiente = new Intent(this, EmpleadosActivity.class);
+        if (id == R.id.usuario) {
+            Intent siguiente = new Intent(this, UsuarioActivity.class);
             startActivity(siguiente);
         } else if (id == R.id.marcas) {
 
@@ -125,13 +125,7 @@ public class MainActivity extends AppCompatActivity
             Intent siguiente = new Intent(this, ClientesActivity.class);
             startActivity(siguiente);
 
-        } else if (id == R.id.presupuesto) {
-            Intent siguiente = new Intent(this, PresupuestoActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putString("usu", usuario);
-            siguiente.putExtras(bundle);
-            startActivity(siguiente);
-        } else if (id == R.id.acerca) {
+        }  else if (id == R.id.acerca) {
 
             Intent siguiente = new Intent(this, AcercaActivity.class);
             startActivity(siguiente);
