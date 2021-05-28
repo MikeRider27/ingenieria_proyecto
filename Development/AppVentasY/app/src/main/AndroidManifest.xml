@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.appventas">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <activity android:name="app.utic.appventas.MarcasActivity"></activity>
+        <activity android:name="app.utic.appventas.ZonaActivity"></activity>
+        <activity android:name="app.utic.appventas.TipobahiaActivity"></activity>
+        <activity android:name="app.utic.appventas.TipovehiculoActivity"></activity>
+        <activity android:name="app.utic.appventas.AcercaActivity" />
+        <activity android:name="app.utic.appventas.PresupuestoActivity" />
+        <activity android:name="app.utic.appventas.ClientesActivity" />
+        <activity android:name="app.utic.appventas.EmpleadosActivity" />
+        <activity android:name="app.utic.appventas.VehiculoActivity" />
+        <activity android:name="app.utic.appventas.BahiaActivity" />
+        <activity
+            android:name="app.utic.appventas.MainActivity"
+            android:label="Sist.Corporativos 2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="app.utic.appventas.LoginActivity"> <!-- Actividad a Iniciar -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -9,8 +9,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $result = 0;
     $id_bahia = 0;
     $nom_bahia = $_REQUEST['nom_bahia'];
-    $id_tipbahia = $_REQUEST['id_tipbahia'];
-    $id_zona = $_REQUEST['id_zona'];
+    $tipo_bahia = $_REQUEST['tipo_bahia'];
+    $zona = $_REQUEST['zona'];
     $estado_bahia = 'LIBRE';
 
     try {
@@ -28,8 +28,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
 					VALUES (:nom_bahia, :id_tipbahia, :id_zona, :estado_bahia)';
             $stmt = $dbconn->prepare($sql);
             $stmt->bindValue(':nom_bahia', $nom_bahia);
-            $stmt->bindValue(':id_tipbahia', $id_tipbahia);
-            $stmt->bindValue(':id_zona', $id_zona);
+            $stmt->bindValue(':id_tipbahia', $tipo_bahia);
+            $stmt->bindValue(':id_zona', $zona);
             $stmt->bindValue(':estado_bahia', $estado_bahia);
 
             $result = $stmt->execute();
@@ -48,8 +48,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     $result = 0;
     $id_bahia = $_REQUEST['id_bahia'];
     $nom_bahia = $_REQUEST['nom_bahia'];
-    $id_tipbahia = $_REQUEST['id_tipbahia'];
-    $id_zona = $_REQUEST['id_zona'];
+    $tipo_bahia = $_REQUEST['id_tipbahia'];
+    $zona = $_REQUEST['zona'];
     // $estado_bahia = 'OCUPADO';
     if (!empty($id_bahia)) {
         $sql = 'UPDATE bahias SET nom_bahia= :nom_bahia,
@@ -59,8 +59,8 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
         $stmt->bindValue(':id_bahia', $id_bahia);
     }
     $stmt->bindValue(':nom_bahia', $nom_bahia);
-    $stmt->bindValue(':id_tipbahia', $id_tipbahia);
-    $stmt->bindValue(':id_zona', $id_zona);
+    $stmt->bindValue(':id_tipbahia', $tipo_bahia);
+    $stmt->bindValue(':id_zona', $zona);
     $result = $stmt->execute();
     $message = $result ? "Registro de la bahias modificado exitosamente!" : "Ocurrio un error intentado resolver la solicitud, por favor complete todos los campos o recargue de vuelta la pagina";
     $status = $result ? "success" : "error";
@@ -80,7 +80,11 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     print json_encode(array("status" => $status, "message" => $message));
 } else if (isset($_GET['accion']) and $_GET['accion'] == "select") {
     // funciona el select para la grilla
-    $stmt = $dbconn->prepare('SELECT * FROM bahias ORDER BY id_bahia ASC');
+    $stmt = $dbconn->prepare('SELECT  b.id_bahia, b.nom_bahia, b.id_tipbahia, tb.nom_tipbahia, b.id_zona, z.nom_zona
+                            from bahias b 
+                            inner join tipo_bahias tb on b.id_tipbahia = tb.id_tipbahia 
+                            inner join zona z  on b.id_zona = z.id_zona 
+                            ORDER BY b.id_bahia ASC');
     $stmt->execute();
     $data = array();
     while ($bahias = $stmt->fetch(PDO::FETCH_OBJ)) {
@@ -88,7 +92,9 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
             "id_bahia" => $bahias->id_bahia,
             "nom_bahia" => $bahias->nom_bahia,
             "id_tipbahia" => $bahias->id_tipbahia,
+            "nom_tipbahia" => $bahias->nom_tipbahia,
             "id_zona" => $bahias->id_zona,
+            "nom_zona" => $bahias->nom_zona,
             "estado_bahia" => $bahias->estado_bahia
         );
     }
@@ -113,6 +119,78 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
                 "id_tipbahia" => $bahias->id_tipbahia,
                 "id_zona" => $bahias->id_zona,
                 "estado_bahia" => $bahias->estado_bahia
+            );
+            $a = 1;
+        }
+
+        if ($a == 0) $datos = array("status" => "NO EXISTE");
+    } else {
+        $datos = array("status" => "ERROR SQL");
+    }
+
+    echo json_encode($datos);
+} else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "selectZona") {
+    //terminado    
+    $stmt = $dbconn->prepare("SELECT * FROM zona ORDER BY id_zona ASC");
+    $stmt->execute();
+    $data = array();
+    while ($zona = $stmt->fetch(PDO::FETCH_OBJ)) {
+        $data[] = array(
+            "id_zona" => $zona->id_zona,
+            "nom_zona" => $zona->nom_zona
+        );
+    }
+    echo json_encode($data);
+}else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "searchZona") {
+    //terminado
+    $zona = $_REQUEST['zona'];
+    $sql_search = "SELECT * FROM zona where id_zona=:id_zona";
+    $stmt = $dbconn->prepare($sql_search);
+    //poner numero de cantidad de campos por tabla diferente cantidad 
+    $stmt->bindParam(':id_zona', $zona);
+    if ($stmt->execute()) {
+        $a = 0;
+        while ($zona = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $datos = array(
+                "status" => "success",
+                "id_zona" => $zona->id_zona,
+                "nom_zona" => $zona->nom_zona
+            );
+            $a = 1;
+        }
+
+        if ($a == 0) $datos = array("status" => "NO EXISTE");
+    } else {
+        $datos = array("status" => "ERROR SQL");
+    }
+
+    echo json_encode($datos);
+}else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "selectTipobahia") {
+    //terminado    
+    $stmt = $dbconn->prepare("SELECT * FROM tipo_bahias ORDER BY id_tipbahia ASC");
+    $stmt->execute();
+    $data = array();
+    while ($tipo_bahias = $stmt->fetch(PDO::FETCH_OBJ)) {
+        $data[] = array(
+            "id_tipbahia" => $tipo_bahias->id_tipbahia,
+            "nom_tipbahia" => $tipo_bahias->nom_tipbahia
+        );
+    }
+    echo json_encode($data);
+}else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "searchTipobahia") {
+    //terminado
+    $id_tipbahia = $_REQUEST['tipo_bahia'];
+    $sql_search = "SELECT * FROM tipo_bahias where id_tipbahia=:id_tipbahia";
+    $stmt = $dbconn->prepare($sql_search);
+    //poner numero de cantidad de campos por tabla diferente cantidad 
+    $stmt->bindParam(':id_tipbahia', $id_tipbahia);
+    if ($stmt->execute()) {
+        $a = 0;
+        while ($tipo_bahias = $stmt->fetch(PDO::FETCH_OBJ)) {
+            $datos = array(
+                "status" => "success",
+                "id_tipbahia" => $tipo_bahias->id_tipbahia,
+                "nom_tipbahia" => $tipo_bahias->nom_tipbahia
             );
             $a = 1;
         }
