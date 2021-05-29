@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
     //colocar la ip del equipo cmd->ipconfig
-    public static String HOST = "http://192.168.11.220/api_parking/";
+    public static String HOST = "http://192.168.100.8/api_parking/";
     //public static String HOST = "";
     Button btnIngresar;
     EditText txtUsu,txtPass;

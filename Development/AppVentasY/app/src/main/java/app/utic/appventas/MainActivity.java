@@ -125,6 +125,11 @@ public class MainActivity extends AppCompatActivity
             Intent siguiente = new Intent(this, ClientesActivity.class);
             startActivity(siguiente);
 
+        }else if (id == R.id.entrada) {
+
+            Intent siguiente = new Intent(this, EntradaActivity.class);
+            startActivity(siguiente);
+
         }  else if (id == R.id.acerca) {
 
             Intent siguiente = new Intent(this, AcercaActivity.class);

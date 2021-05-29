@@ -1,5 +1,6 @@
 package app.utic.appventas;
 
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -27,18 +28,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class VehiculoActivity extends AppCompatActivity {
+import java.text.DecimalFormat;
+
+public class EntradaActivity extends AppCompatActivity {
 
     private String usuario; //se declara variable a recibir usuario del login
     static String HOST = LoginActivity.HOST;
     String TABLA = "api/";
     String ENLACE = HOST+TABLA;
 
-    EditText et_codigo, et_chapa, et_codmarca, et_descrimarca, et_codtipov, et_descritipov, et_codcliente, et_nombre;
+    EditText et_codigo, et_descripcion, et_codtipob, et_descritipob, et_codzona, et_descrizona, fechaEntrada, horaEntrada, observacion;
 
-    ListView lista, listamarca, listatipov, listacliente;
+    ListView lista, listatipob, listazona;
 
-    Integer idEliminar, idMarca, idTipov, idCliente;
+    Integer idEliminar, idTipoB, idZona;
 
     Button registrar, buscar, eliminar, modificar;
     RequestQueue request, requestQueue;
@@ -50,40 +53,37 @@ public class VehiculoActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehiculo);
+        setContentView(R.layout.activity_entrada);
 
         et_codigo = (EditText) findViewById(R.id.txt_codigo);
-        et_chapa = (EditText) findViewById(R.id.txt_chapa);
-        et_codmarca = (EditText) findViewById(R.id.txt_codmarca);
-        et_descrimarca = (EditText) findViewById(R.id.txt_descrimarca);
+        et_descripcion = (EditText) findViewById(R.id.txt_descripcion);
+        et_codtipob = (EditText) findViewById(R.id.txt_codtipoBa);
+        et_descritipob = (EditText) findViewById(R.id.txt_descritipob);
+        et_codzona = (EditText) findViewById(R.id.txt_codzona);
+        et_descrizona = (EditText) findViewById(R.id.txt_descrizona);
+        fechaEntrada = findViewById(R.id.txt_fecha);
 
-        et_codtipov = (EditText) findViewById(R.id.txt_codtipoveh);
-        et_descritipov = (EditText) findViewById(R.id.txt_descritipo);
 
-        et_codcliente = (EditText) findViewById(R.id.txt_codcliente);
-        et_nombre = (EditText) findViewById(R.id.txt_nombre);
+        fechaEntrada.setText(ParametrosGlobales.completarFecha("dd/MM/yyyy HH:mm"));
 
-        lista = (ListView) findViewById(R.id.listaVehiculo);
-        listamarca = (ListView) findViewById(R.id.listaMarcas);
-        listatipov = (ListView) findViewById(R.id.listaTipovehiculo);
-        listacliente = (ListView) findViewById(R.id.listaCliente);
+
+
+        lista = (ListView) findViewById(R.id.listaBahia);
+        listatipob = (ListView) findViewById(R.id.listaTipoBa);
+        listazona = (ListView) findViewById(R.id.listaZonas);
         registrar = (Button) findViewById(R.id.btnRegistrar);
         modificar = (Button) findViewById(R.id.btnModificar);
         eliminar = (Button) findViewById(R.id.btnEliminar);
         buscar = (Button) findViewById(R.id.bt_buscar);
         et_codigo.setEnabled(false);
-        et_codmarca.setEnabled(false);
-        et_descrimarca.setEnabled(false);
-        et_codtipov.setEnabled(false);
-        et_descritipov.setEnabled(false);
-        et_codcliente.setEnabled(false);
-        et_nombre.setEnabled(false);
+//        et_codtipob.setEnabled(false);
+        et_descritipob.setEnabled(false);
+        et_codzona.setEnabled(false);
+        et_descrizona.setEnabled(false);
         Cancelar();
         cargaLista();
-        cargaMarca();
-        cargaTipoV();
-        cargaCliente();
-
+        cargaTipoBA();
+        cargaZona();
 
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -91,63 +91,48 @@ public class VehiculoActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String listItem = (String) lista.getItemAtPosition(i);
 
-                idEliminar = Integer.parseInt(listItem.split(" / ")[0]);
+                idEliminar = Integer.parseInt(listItem.split(" - ")[0]);
 
                 et_codigo.setText(idEliminar.toString());
                 Recuperar();
             }
         });
 
-        listamarca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listatipob.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String listItem = (String) listamarca.getItemAtPosition(i);
+                String listItem = (String) listatipob.getItemAtPosition(i);
 
-                idMarca = Integer.parseInt(listItem.split(" - ")[0]);
+                idTipoB = Integer.parseInt(listItem.split(" - ")[0]);
 
-                et_codmarca.setText(idMarca.toString());
-                RecuperarMarca();
+                et_codtipob.setText(idTipoB.toString());
+                RecuperarTipoB();
             }
         });
-        listatipov.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listazona.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String listItem = (String) listatipov.getItemAtPosition(i);
+                String listItem = (String) listazona.getItemAtPosition(i);
 
-                idTipov = Integer.parseInt(listItem.split(" - ")[0]);
+                idZona = Integer.parseInt(listItem.split(" - ")[0]);
 
-                et_codtipov.setText(idTipov.toString());
-                RecuperarTipoV();
-            }
-        });
-        listacliente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String listItem = (String) listacliente.getItemAtPosition(i);
-
-                idCliente = Integer.parseInt(listItem.split(" - ")[0]);
-
-                et_codcliente.setText(idCliente.toString());
-                RecuperarCliente();
+                et_codzona.setText(idZona.toString());
+                RecuperarZona();
             }
         });
     }
 
     public void Registrar(View view) {
 
+        String descri = et_descripcion.getText().toString();
+        String tipo_bahia = et_codtipob.getText().toString();
+        String zona = et_codzona.getText().toString();
 
-        String chapa = et_chapa.getText().toString();
-        String tipo_vehiculo = et_codtipov.getText().toString();
-        String marca = et_codmarca.getText().toString();
-        String cliente = et_codcliente.getText().toString();
-        if( chapa.isEmpty() || tipo_vehiculo.isEmpty() || marca.isEmpty() || cliente.isEmpty() ){
+        if(descri.isEmpty() || tipo_bahia.isEmpty() || zona.isEmpty()){
             Toast.makeText(getApplicationContext(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
-
+            et_descripcion.requestFocus();
         } else {
-            String URL = ENLACE+"vehiculo.php?accion=insert&chapa="+et_chapa.getText().toString()+
-                    "&marca="+et_codmarca.getText().toString()+
-                    "&tipo_vehiculo="+et_codtipov.getText().toString()+
-                    "&cliente="+et_codcliente.getText().toString();
+            String URL = ENLACE+"bahia.php?accion=insert&nom_bahia="+et_descripcion.getText().toString()+"&tipo_bahia="+et_codtipob.getText().toString()+"&zona="+et_codzona.getText().toString()+"&estado_bahia=LIBRE";
             StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -155,17 +140,13 @@ public class VehiculoActivity extends AppCompatActivity {
                         JSONObject parentObject = new JSONObject(response);
                         if (parentObject.getString("status").equals("success")){
                             String message = parentObject.getString("message");
-
+                            et_descripcion.setText("");
                             et_codigo.setText("");
-                            et_chapa.setText("");
-                            et_codmarca.setText("");
-                            et_descrimarca.setText("");
-                            et_codtipov.setText("");
-                            et_descritipov.setText("");
-                            et_codcliente.setText("");
-                            et_nombre.setText("");
-
-                            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                            et_codtipob.setText("");
+                            et_descritipob.setText("");
+                            et_codzona.setText("");
+                            et_descrizona.setText("");
+                            Toast.makeText(EntradaActivity.this, message, Toast.LENGTH_SHORT).show();
                             cargaLista();
 
                         } else {
@@ -188,7 +169,7 @@ public class VehiculoActivity extends AppCompatActivity {
     }
 
     public void Eliminar(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(VehiculoActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(EntradaActivity.this);
         builder.setMessage("¿Desea Eliminar este registro?").setPositiveButton("Si", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
     }
@@ -198,7 +179,7 @@ public class VehiculoActivity extends AppCompatActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch (which){
                 case DialogInterface.BUTTON_POSITIVE:
-                    String URL = ENLACE+"vehiculo.php?accion=delete&id_vehiculo="+et_codigo.getText().toString();
+                    String URL = ENLACE+"bahia.php?accion=delete&id_bahia="+et_codigo.getText().toString();
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -206,17 +187,13 @@ public class VehiculoActivity extends AppCompatActivity {
                                 JSONObject parentObject = new JSONObject(response);
                                 if (parentObject.getString("status").equals("success")){
                                     String message = parentObject.getString("message");
-
+                                    et_descripcion.setText("");
                                     et_codigo.setText("");
-                                    et_chapa.setText("");
-                                    et_codmarca.setText("");
-                                    et_descrimarca.setText("");
-                                    et_codtipov.setText("");
-                                    et_descritipov.setText("");
-                                    et_codcliente.setText("");
-                                    et_nombre.setText("");
-
-                                    Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                                    et_codtipob.setText("");
+                                    et_descritipob.setText("");
+                                    et_codzona.setText("");
+                                    et_descrizona.setText("");
+                                    Toast.makeText(EntradaActivity.this, message, Toast.LENGTH_SHORT).show();
                                     cargaLista();
                                 }else {
                                     String message = parentObject.getString("message");
@@ -232,7 +209,7 @@ public class VehiculoActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Sin conexion a Internet", Toast.LENGTH_LONG).show();
                         }
                     });
-                    requestQueue = Volley.newRequestQueue(VehiculoActivity.this);
+                    requestQueue = Volley.newRequestQueue(EntradaActivity.this);
                     requestQueue.add(stringRequest);
                     Cancelar();
                     break;
@@ -247,21 +224,20 @@ public class VehiculoActivity extends AppCompatActivity {
 
     public void Modificar(View view) {
 
+        String descri = et_descripcion.getText().toString();
+        String tipo_bahia = et_codtipob.getText().toString();
+        String zona = et_codzona.getText().toString();
 
-        String chapa = et_chapa.getText().toString();
-        String tipo_vehiculo = et_codtipov.getText().toString();
-        String marca = et_codmarca.getText().toString();
-        String cliente = et_codcliente.getText().toString();
-        if( chapa.isEmpty() || tipo_vehiculo.isEmpty() || marca.isEmpty() || cliente.isEmpty() ){
+
+        if(descri.isEmpty() || tipo_bahia.isEmpty() || zona.isEmpty()){
             Toast.makeText(getApplicationContext(), "Debe completar todos los campos", Toast.LENGTH_LONG).show();
+            et_descripcion.requestFocus();
+        }  else {
 
-        } else {
-
-        final String URL = ENLACE+"vehiculo.php?accion=update&id_vehiculo="+et_codigo.getText().toString()+
-                "chapa="+et_chapa.getText().toString()+
-                "&marca="+et_codmarca.getText().toString()+
-                "&tipo_vehiculo="+et_codtipov.getText().toString()+
-                "&cliente="+et_codcliente.getText().toString();;
+        final String URL = ENLACE+"bahia.php?accion=update&id_bahia="+et_codigo.getText().toString()+
+                "&nom_bahia="+et_descripcion.getText().toString()+
+                "&tipo_bahia="+et_codtipob.getText().toString()+
+                "&zona="+et_codzona.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -269,21 +245,18 @@ public class VehiculoActivity extends AppCompatActivity {
                     JSONObject parentObject = new JSONObject(response);
                     if (parentObject.getString("status").equals("success")){
                         String message = parentObject.getString("message");
+                        et_descripcion.setText("");
                         et_codigo.setText("");
-                        et_chapa.setText("");
-                        et_codmarca.setText("");
-                        et_descrimarca.setText("");
-                        et_codtipov.setText("");
-                        et_descritipov.setText("");
-                        et_codcliente.setText("");
-                        et_nombre.setText("");
-
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        et_codtipob.setText("");
+                        et_descritipob.setText("");
+                        et_codzona.setText("");
+                        et_descrizona.setText("");
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                         cargaLista();
                         Cancelar();
-                    } else {
+                    }else {
                         String message = parentObject.getString("message");
-                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "Error "+e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -303,42 +276,33 @@ public class VehiculoActivity extends AppCompatActivity {
 
     public void Cancelar() {
         et_codigo.setText("");
-        et_chapa.setText("");
-
-
-        et_codmarca.setText("");
-        et_descrimarca.setText("");
-        et_codcliente.setText("");
-        et_nombre.setText("");
-        et_codtipov.setText("");
-        et_descritipov.setText("");
+        et_descripcion.setText("");
+        et_codtipob.setText("");
+        et_descritipob.setText("");
+        et_codzona.setText("");
+        et_descrizona.setText("");
         registrar.setEnabled(true);
         modificar.setEnabled(false);
         eliminar.setEnabled(false);
-
+        et_descripcion.requestFocus();
     }
 
     public void CancelarBoton(View view) {
         et_codigo.setText("");
-        et_chapa.setText("");
-
-
-        et_codmarca.setText("");
-        et_descrimarca.setText("");
-        et_codcliente.setText("");
-        et_nombre.setText("");
-        et_codtipov.setText("");
-        et_descritipov.setText("");
+        et_descripcion.setText("");
+        et_codtipob.setText("");
+        et_descritipob.setText("");
+        et_codzona.setText("");
+        et_descrizona.setText("");
         registrar.setEnabled(true);
         modificar.setEnabled(false);
         eliminar.setEnabled(false);
-
-
+        et_descripcion.requestFocus();
     }
 
     private void cargaLista() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(VehiculoActivity.this,R.layout.support_simple_spinner_dropdown_item);
-        String URL=ENLACE+"vehiculo.php?accion=select";
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EntradaActivity.this,R.layout.support_simple_spinner_dropdown_item);
+        String URL=ENLACE+"bahia.php?accion=select";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -347,14 +311,13 @@ public class VehiculoActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        String cod = jsonObject.getString("id_vehiculo");
-                        String chapa = jsonObject.getString("chapa");
-                        String tipo_vehiculo = jsonObject.getString("nom_tipvehiculo");
-                        String marca = jsonObject.getString("nom_marca");
-                        String cliente = jsonObject.getString("nombres");
+                        String codigo = jsonObject.getString("id_bahia");
+                        String descripcion = jsonObject.getString("nom_bahia");
+                        String tipo_bahiades = jsonObject.getString("nom_tipbahia");
+                        String zonades = jsonObject.getString("nom_zona");
+                        //et_codmarca.setText(marcod);
 
-
-                        adapter.add(cod+" - "+chapa+" - "+tipo_vehiculo+" - "+marca+" - "+cliente);
+                        adapter.add(codigo+" - "+descripcion+" - "+tipo_bahiades+" - "+zonades);
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -375,7 +338,7 @@ public class VehiculoActivity extends AppCompatActivity {
     }
 
     public void Recuperar() {
-        String URL = ENLACE+"vehiculo.php?accion=search&id_vehiculo="+et_codigo.getText().toString();
+        String URL = ENLACE+"bahia.php?accion=search&id_bahia="+et_codigo.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
@@ -384,19 +347,18 @@ public class VehiculoActivity extends AppCompatActivity {
                     JSONObject parentObject = new JSONObject(response);
                     if (parentObject.getString("status").equals("success")){
 
-                        String chapa = parentObject.getString("chapa");
-                        String tipo_vehiculo = parentObject.getString("id_tipvehiculo");
-                        String marca = parentObject.getString("id_marca");
-                        String cliente = parentObject.getString("id_cliente");
+                        String descripcion = parentObject.getString("nom_bahia");
+                        String tipo_bahia = parentObject.getString("id_tipbahia");
+                        String zona = parentObject.getString("id_zona");
 
-                        et_chapa.setText(chapa);
-                        et_codmarca.setText(marca);
-                        et_codtipov.setText(tipo_vehiculo);
-                        et_codcliente.setText(cliente);
+                        et_descripcion.setText(descripcion);
+                        et_codtipob.setText(tipo_bahia);
+                        et_codzona.setText(zona);
 
-                        RecuperarMarca();
-                        RecuperarTipoV();
-                        RecuperarCliente();
+                        //txtDescripcion.setText("");
+                        //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
+                       RecuperarTipoB();
+                        RecuperarZona();
                         modificar.setEnabled(true);
                         eliminar.setEnabled(true);
                         registrar.setEnabled(false);
@@ -419,8 +381,8 @@ public class VehiculoActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    public void RecuperarMarca() {
-        String URL = ENLACE+"vehiculo.php?accion=searchMarca&id_marca="+et_codmarca.getText().toString();
+    public void RecuperarTipoB() {
+        String URL = ENLACE+"bahia.php?accion=searchTipobahia&tipo_bahia="+et_codtipob.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
@@ -429,15 +391,15 @@ public class VehiculoActivity extends AppCompatActivity {
                     JSONObject parentObject = new JSONObject(response);
                     if (parentObject.getString("status").equals("success")){
                         //int descri = parentObject.getInt("des");
-                        String descri = parentObject.getString("nom_marca");
-                        et_descrimarca.setText(descri);
+                        String descri = parentObject.getString("nom_tipbahia");
+                        et_descritipob.setText(descri);
                         //txtDescripcion.setText("");
                         //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
 
                        // et_descrimarca.setSelection(et_descrimarca.getText().toString().length());
 
-                    }else {
-                        Toast.makeText(getApplicationContext(), "No Existe", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "No Existe3", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "No Existe4", Toast.LENGTH_SHORT).show();
@@ -452,8 +414,9 @@ public class VehiculoActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
     }
-    public void RecuperarTipoV() {
-        String URL = ENLACE+"vehiculo.php?accion=searchTipoV&id_tipvehiculo="+et_codtipov.getText().toString();
+
+    public void RecuperarZona() {
+        String URL = ENLACE+"bahia.php?accion=searchZona&zona="+et_codzona.getText().toString();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
 
             @Override
@@ -462,48 +425,15 @@ public class VehiculoActivity extends AppCompatActivity {
                     JSONObject parentObject = new JSONObject(response);
                     if (parentObject.getString("status").equals("success")){
                         //int descri = parentObject.getInt("des");
-                        String descritipov = parentObject.getString("nom_tipvehiculo");
-                        et_descritipov.setText(descritipov);
+                        String descri = parentObject.getString("nom_zona");
+                        et_descrizona.setText(descri);
                         //txtDescripcion.setText("");
                         //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
 
-                       // et_descrimarca.setSelection(et_descrimarca.getText().toString().length());
+                        // et_descrimarca.setSelection(et_descrimarca.getText().toString().length());
 
-                    }else {
-                        Toast.makeText(getApplicationContext(), "No Existe", Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    Toast.makeText(getApplicationContext(), "No Existe4", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Sin conexion a Internet", Toast.LENGTH_LONG).show();
-            }
-        });
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }
-    public void RecuperarCliente() {
-        String URL = ENLACE+"vehiculo.php?accion=searchCliente&id_cliente="+et_codcliente.getText().toString();
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-
-            @Override
-            public void onResponse(String response) {
-                try {
-                    JSONObject parentObject = new JSONObject(response);
-                    if (parentObject.getString("status").equals("success")){
-                        //int descri = parentObject.getInt("des");
-                        String descricliente = parentObject.getString("nombres");
-                        et_nombre.setText(descricliente);
-                        //txtDescripcion.setText("");
-                        //Toast.makeText(Marcas3Activity.this, "Recuperado", Toast.LENGTH_SHORT).show();
-
-                       // et_descrimarca.setSelection(et_descrimarca.getText().toString().length());
-
-                    }else {
-                        Toast.makeText(getApplicationContext(), "No Existe", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "No Existe3", Toast.LENGTH_LONG).show();
                     }
                 } catch (JSONException e) {
                     Toast.makeText(getApplicationContext(), "No Existe4", Toast.LENGTH_SHORT).show();
@@ -524,22 +454,22 @@ public class VehiculoActivity extends AppCompatActivity {
         AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "administracion", null, 1);
         SQLiteDatabase BaseDeDatos = admin.getWritableDatabase();
 
-        String codigo = et_chapa.getText().toString();
+        String codigo = et_codigo.getText().toString();
 
         if (!codigo.isEmpty()) {
             Cursor fila = BaseDeDatos.rawQuery
                     ("select pro_descripcion, pro_costo, mar_codigo, pro_precio from producto where pro_codigo=" + codigo, null);
 
             if (((Cursor) fila).moveToFirst()) {
-
-
-                et_codmarca.setText(fila.getString(2));
-
+                et_descripcion.setText(fila.getString(0));
+                et_codtipob.setText(fila.getString(1));
+                et_codzona.setText(fila.getString(2));
 
 
                 registrar.setEnabled(false);
-
-                RecuperarMarca();
+                et_descripcion.requestFocus();
+                RecuperarTipoB();
+                RecuperarZona();
                 BaseDeDatos.close();
             } else {
                 Toast.makeText(this, "No existe El Producto", Toast.LENGTH_LONG).show();
@@ -550,9 +480,9 @@ public class VehiculoActivity extends AppCompatActivity {
         }
     }
 
-    private void cargaMarca() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(VehiculoActivity.this,R.layout.support_simple_spinner_dropdown_item);
-        String URL=ENLACE+"vehiculo.php?accion=selectMarca";
+    private void cargaTipoBA() {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EntradaActivity.this,R.layout.support_simple_spinner_dropdown_item);
+        String URL=ENLACE+"bahia.php?accion=selectTipobahia";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -561,15 +491,15 @@ public class VehiculoActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        String codigo = jsonObject.getString("id_marca");
-                        String descripcion = jsonObject.getString("nom_marca");
+                        String codigo = jsonObject.getString("id_tipbahia");
+                        String descripcion = jsonObject.getString("nom_tipbahia");
 
                         adapter.add(codigo+" - "+descripcion);
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }listamarca.setAdapter(adapter);
+                }listatipob.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -581,9 +511,10 @@ public class VehiculoActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
-    private void cargaTipoV() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(VehiculoActivity.this,R.layout.support_simple_spinner_dropdown_item);
-        String URL=ENLACE+"vehiculo.php?accion=selectTipoV";
+
+    private void cargaZona() {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(EntradaActivity.this,R.layout.support_simple_spinner_dropdown_item);
+        String URL=ENLACE+"bahia.php?accion=selectZona";
 
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
@@ -592,15 +523,15 @@ public class VehiculoActivity extends AppCompatActivity {
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         jsonObject = response.getJSONObject(i);
-                        String codigo = jsonObject.getString("id_tipvehiculo");
-                        String descripcion = jsonObject.getString("nom_tipvehiculo");
+                        String codigo = jsonObject.getString("id_zona");
+                        String descripcion = jsonObject.getString("nom_zona");
 
                         adapter.add(codigo+" - "+descripcion);
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                }listatipov.setAdapter(adapter);
+                }listazona.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {
             @Override
@@ -612,36 +543,6 @@ public class VehiculoActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
-    private void cargaCliente() {
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(VehiculoActivity.this,R.layout.support_simple_spinner_dropdown_item);
-        String URL=ENLACE+"vehiculo.php?accion=selectCliente";
 
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                JSONObject jsonObject = null;
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        jsonObject = response.getJSONObject(i);
-                        String codigo = jsonObject.getString("id_cliente");
-                        String descripcion = jsonObject.getString("nombres");
-
-                        adapter.add(codigo+" - "+descripcion);
-
-                    } catch (JSONException e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                }listacliente.setAdapter(adapter);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "Sin conexion a Internet", Toast.LENGTH_LONG).show();
-            }
-        }
-        );
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(jsonArrayRequest);
-    }
 
 }

@@ -21,6 +21,7 @@
         <activity android:name="app.utic.appventas.UsuarioActivity" />
         <activity android:name="app.utic.appventas.VehiculoActivity" />
         <activity android:name="app.utic.appventas.BahiaActivity" />
+        <activity android:name="app.utic.appventas.EntradaActivity" />
         <activity
             android:name="app.utic.appventas.MainActivity"
             android:label="Sist.Corporativos 2"
