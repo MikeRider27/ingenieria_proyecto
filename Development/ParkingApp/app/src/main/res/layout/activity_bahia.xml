@@ -9,7 +9,7 @@
 <android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.utic.parkingapp.BahiaActivity">
+    tools:context="app.utic.appventas.BahiaActivity">
 
     <TextView
         android:id="@+id/textView4"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listaproducto"
+        android:id="@+id/listaBahia"
         android:layout_width="0dp"
         android:layout_height="184dp"
         android:layout_marginStart="8dp"
@@ -140,16 +140,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_codmarca"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:id="@+id/txt_codtipoBa"
+        android:layout_width="133dp"
+        android:layout_height="42dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="172dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Codigo Tipo Bahia"
+        android:hint="Cod Tipo Bahia"
         android:inputType="number"
         app:layout_constraintEnd_toStartOf="@+id/listaMarcas"
         app:layout_constraintStart_toStartOf="parent"
@@ -172,7 +172,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
-        android:id="@+id/listaMarcas"
+        android:id="@+id/listaTipoBa"
         android:layout_width="219dp"
         android:layout_height="98dp"
         android:layout_marginTop="172dp"
@@ -194,9 +194,9 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_descrimarca"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/txt_descritipob"
+        android:layout_width="134dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="224dp"

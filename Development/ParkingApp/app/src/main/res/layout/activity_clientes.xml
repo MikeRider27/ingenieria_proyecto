@@ -7,12 +7,10 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="app.utic.parkingapp.ClientesActivity">
+    tools:context="app.utic.appventas.ClientesActivity">
 
     <TextView
         android:id="@+id/textView3"
@@ -32,8 +30,8 @@
 
     <EditText
         android:id="@+id/txt_codigo"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
+        android:layout_width="121dp"
+        android:layout_height="46dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="68dp"
@@ -48,8 +46,8 @@
 
     <EditText
         android:id="@+id/txt_cedula"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_width="121dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="68dp"
@@ -74,12 +72,12 @@
         android:ems="10"
         android:hint="@string/txt_nombre"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toStartOf="@+id/txt_apellido"
+        app:layout_constraintEnd_toStartOf="@+id/txt_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_apellido"
+        android:id="@+id/txt_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -88,15 +86,15 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="@string/txt_apellido"
-        android:inputType="textPersonName"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toEndOf="@+id/txt_nombre"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/txt_ruc"
+        android:id="@+id/txt_direccion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -105,7 +103,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="@string/txt_ruc"
+        android:hint="Direccion"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/txt_telefono"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +124,7 @@
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
-        app:layout_constraintStart_toEndOf="@+id/txt_ruc"
+        app:layout_constraintStart_toEndOf="@+id/txt_direccion"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button

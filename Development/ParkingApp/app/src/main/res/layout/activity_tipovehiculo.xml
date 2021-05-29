@@ -7,11 +7,13 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:verticalScrollbarPosition="defaultPosition"
-        tools:context="app.utic.parkingapp.TipovehiculoActivity">
+        tools:context="app.utic.appventas.TipovehiculoActivity">
 
         <TextView
             android:id="@+id/textView"
@@ -171,7 +173,7 @@
 
 
         <ListView
-            android:id="@+id/listaTipovehiculo"
+            android:id="@+id/listaTipoV"
             android:layout_width="0dp"
             android:layout_height="276dp"
             android:layout_marginStart="8dp"

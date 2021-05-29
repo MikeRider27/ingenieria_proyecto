@@ -27,7 +27,7 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../ParkingAppLocal/app/src/main/java/app/utic/parkingapp/LoginActivity.java">
+        <entry file="file://$PROJECT_DIR$/../../AppVentasLocal/app/src/main/java/app/utic/appventas/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
@@ -40,7 +40,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/LoginActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="566">
               <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
@@ -52,7 +52,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/Marcas3Activity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/Marcas3Activity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
               <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
@@ -80,7 +80,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/MainActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
               <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
@@ -89,7 +89,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/MarcasActivity.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/MarcasActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1411">
               <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
@@ -108,7 +108,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/AdminSQLiteOpenHelper.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/AdminSQLiteOpenHelper.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
@@ -133,7 +133,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../../parkingappLocal/app/src/main/java/app/utic/parkingapp/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/../../AppVentasLocal/app/src/main/java/app/utic/appventas/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -155,27 +155,27 @@
         <subPane>
           <expand>
             <path>
-              <item name="parkingappY" type="1abcf292:AndroidViewProjectNode" />
+              <item name="AppVentasY" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
             </path>
             <path>
-              <item name="parkingappY" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="parkingappY" type="1abcf292:AndroidViewProjectNode" />
+              <item name="AppVentasY" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="parkingapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
             <path>
-              <item name="parkingappY" type="1abcf292:AndroidViewProjectNode" />
+              <item name="AppVentasY" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="appventas" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AppVentasY" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
-              <item name="parkingappY" type="1abcf292:AndroidViewProjectNode" />
+              <item name="AppVentasY" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
@@ -189,7 +189,7 @@
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="28f0d23d" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../parkingappLocal/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../AppVentasLocal/app" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RunDashboard">
@@ -314,7 +314,7 @@
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../parkingappLocal/app/src/main/java/app/utic/parkingapp/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/../../AppVentasLocal/app/src/main/java/app/utic/appventas/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="14" selection-start-line="14" selection-end-line="14" />
@@ -325,14 +325,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/MainActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="29" column="63" selection-start-line="29" selection-start-column="63" selection-end-line="29" selection-end-column="63" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/MarcasActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/MarcasActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1411">
           <caret line="100" column="38" selection-start-line="100" selection-start-column="38" selection-end-line="100" selection-end-column="38" />
@@ -347,7 +347,7 @@
       </provider>
       <provider editor-type-id="android-manifest" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/AdminSQLiteOpenHelper.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/AdminSQLiteOpenHelper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
@@ -364,7 +364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="566">
           <caret line="43" column="39" selection-start-line="43" selection-start-column="39" selection-end-line="43" selection-end-column="39" />
@@ -389,7 +389,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/parkingapp/Marcas3Activity.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/app/utic/appventas/Marcas3Activity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="85" column="12" selection-start-line="85" selection-start-column="12" selection-end-line="85" selection-end-column="12" />
