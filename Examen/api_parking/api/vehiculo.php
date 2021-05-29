@@ -95,13 +95,13 @@ if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "insert") {
     echo json_encode($data);
 } else if (isset($_REQUEST['accion']) and $_REQUEST['accion'] == "search") {
     //terminado
-    $chapa = $_REQUEST['chapa'];
+    $chapa = mb_strtoupper(trim($_REQUEST['chapa']), 'UTF-8');
 
     $sql_search = "SELECT v.chapa, v.id_tipvehiculo, t.nom_tipvehiculo, 
     v.id_marca, m.nom_marca, v.id_cliente, (c.cedula || ' / ' || c.nombre) AS nombres  
     FROM vehiculo v inner join tipo_vehiculo t ON v.id_tipvehiculo = t.id_tipvehiculo
     inner join marca m ON v.id_marca = m.id_marca
-    inner join cliente c ON v.id_cliente = c.id_cliente where v.chapa:chapa";
+    inner join cliente c ON v.id_cliente = c.id_cliente where v.chapa=:chapa";
 
     $stmt = $dbconn->prepare($sql_search);
     //poner numero de cantidad de campos por tabla diferente cantidad 
